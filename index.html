@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Project</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/8e777b5eeb.js"
@@ -31,12 +35,12 @@
         <div class="top_nav">
           <!-- <div class="circle_logo"> -->
           <div class="circle">
-            <i class="fas fa-cubes"></i>
+            <i class="fas fa-cubes logo_nav"></i>
           </div>
           <!-- </div> -->
-          <a href="home.html">
+          <!-- <a href="home.html">
             <i class="fas fa-power-off" title="Log Out"></i>
-          </a>
+          </a> -->
         </div>
         <div class="user_info">
           <span class="welcome_user">Hello, Christian</span>
@@ -65,6 +69,16 @@
             </div>
             <span class="nav_link_label">Setting</span>
           </a>
+          <div class="nav_content_bottom">
+            <a href="home.html" class="nav_link">
+              <div class="nav_icon_container">
+                <span class="material-icons-outlined" id="logout_icon">
+                  logout
+                </span>
+              </div>
+              <span class="nav_link_label">Sign Out</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -108,7 +122,7 @@
           onkeyup="searchProduct()"
           placeholder="Search..."
         />
-
+        <span class="material-icons-outlined" id="search_icon"> search </span>
         <!-- <div class="mid_content right"> -->
         <!-- <div class="btn_container"> -->
         <div class="buttons">
@@ -132,6 +146,7 @@
           <div class="form_popup">
             <div class="inventory_form" name="Form">
               <span class="form_heading">Add New Item</span>
+              <span class="edit_heading">Edit Item</span>
               <div class="inventory_form_row">
                 <div class="input_section name">
                   <label for="name" class="label_name">
@@ -146,7 +161,6 @@
                     name="name"
                     type="text"
                     autocomplete="off"
-                    onclick="requiredField()"
                     required
                   />
                 </div>
@@ -242,6 +256,7 @@
                     step="0.01"
                     autocomplete="off"
                   />
+                  <span class="dollar_sign">$</span>
                 </div>
                 <div class="input_section return">
                   <label for="roi" class="label_name">
@@ -254,6 +269,7 @@
                     step="0.01"
                     autocomplete="off"
                   />
+                  <span class="dollar_sign">$</span>
                 </div>
                 <div class="input_section condition">
                   <label for="condition" class="label_name">
@@ -267,38 +283,42 @@
                   />
                 </div>
               </div>
+              <div class="edit_btns">
+                <button class="cancel_btn" type="button">Cancel</button>
+                <button class="edit_row" type="button">Edit</button>
+              </div>
               <div class="form_buttons">
                 <button class="close_form" type="button">Close</button>
-                <!-- <div class="add_button"> -->
                 <button class="submit_form" type="button">Add</button>
-                <!-- </div> -->
               </div>
             </div>
-            <!-- <div class="form_buttons">
-              <button class="close_form" type="submit">Close</button>
-              <!- <div class="add_button"> -->
-            <!-- <button class="submit_form" type="button">Add</button> -->
-            <!-- </div> -->
-            <!-- </div> -->
           </div>
         </div>
       </form>
 
-      <table class="table_inventory">
-        <thead>
-          <th class="product_name_th">Name</th>
-          <th class="product_brand_th">Brand</th>
-          <th class="product_size_th">Size</th>
-          <th class="product_style_id_th">Style ID</th>
-          <th class="product_status_th">Status</th>
-          <th class="date_purchased_th">Purchase Date</th>
-          <th class="date_sold_th">Sold Date</th>
-          <th class="product_price_th">Price</th>
-          <th class="product_roi_th">Return</th>
-          <th class="product_condition_th">Condition</th>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table_scroll">
+        <table class="table_inventory">
+          <thead>
+            <th class="product_name_th">Name</th>
+            <th class="product_brand_th">Brand</th>
+            <th class="product_size_th">Size</th>
+            <th class="product_style_id_th">Style ID</th>
+            <th class="product_status_th">Status</th>
+            <th class="date_purchased_th">Purchase Date</th>
+            <th class="date_sold_th">Sold Date</th>
+            <th class="product_price_th">Price</th>
+            <th class="product_roi_th">Profit</th>
+            <th class="product_condition_th">Condition</th>
+            <th class="actions_th"></th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="empty_table">
+        <i class="far fa-chart-bar"></i><br />
+        <span class="no_data">No Data</span><br />
+        <span class="report_data">Add items to track inventory.</span>
+      </div>
     </div>
   </body>
 </html>

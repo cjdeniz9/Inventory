@@ -12,6 +12,8 @@ const closeForm = document.querySelector(".close_form");
 const formBackground = document.querySelector(".form_popup_background");
 const formPopup = document.querySelector(".form_popup");
 const submitForm = document.querySelector(".submit_form");
+const btnCancel = document.querySelector(".cancel_btn");
+const editRow = document.querySelector(".edit_row");
 
 const inventoryForm = document.querySelector(".inventory_form");
 
@@ -74,8 +76,26 @@ function checkMenuStatus() {
   }
 }
 
+// function displayToggle() {
+//   if (document.querySelector(".option_container").style.opacity === "0") {
+//     document.querySelector(".option_container").style.opacity = "1";
+//   } else {
+//     document.querySelector(".option_container").style.opacity = "0";
+//   }
+// }
+
 // When clicked input form is visible
 openForm.addEventListener("click", () => {
+  productName.value = "";
+  productBrand.value = "";
+  productSize.value = "";
+  productStyleId.value = "";
+  productStatus.value = "";
+  purchaseDate.value = "";
+  soldDate.value = "";
+  productPrice.value = "";
+  productRoi.value = "";
+  productCondition.value = "";
   document.querySelector(".form_popup").style.display = "block";
   document.querySelector(".form_popup_background").style.display = "block";
 });
@@ -91,22 +111,12 @@ closeForm.addEventListener("click", () => {
   document.querySelector(".r_price").style.opacity = "0";
 });
 
-// Requires input to be filled out
-// function emptyField() {
-//   document.querySelector(".product_date").required = true;
-//   document.querySelector(".product_date_sold").required = true;
-//   document.querySelector(".product_name").required = true;
-//   document.querySelector(".product_price").required = true;
-//   document.querySelector(".product_size").required = true;
-//   document.querySelector(".product_roi").required = true;
-// }
-
 // Event Listener for Form
 submitForm.addEventListener("click", function (e) {
   //Not needed
   // e.preventDefault();
 
-  //Input fields required
+  // Input fields required
   if (
     productName.value === "" ||
     purchaseDate.value === "" ||
@@ -134,17 +144,15 @@ submitForm.addEventListener("click", function (e) {
   var soldCell = newRow.insertCell(6);
   var priceCell = newRow.insertCell(7);
   var roiCell = newRow.insertCell(8);
-  var conditionCell = newRow.insertCell(-1);
+  var conditionCell = newRow.insertCell(9);
 
   // Formats date
   var inputPurchaseDate = new Date(purchaseDate.value);
-  var month = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"][
-    inputPurchaseDate.getMonth()
-  ];
   var formattedPurchaseDate =
-    month +
+    inputPurchaseDate.getMonth() +
+    1 +
     "/" +
-    inputPurchaseDate.getDate() +
+    (inputPurchaseDate.getDate() + 1) +
     "/" +
     inputPurchaseDate.getFullYear();
 
@@ -153,7 +161,11 @@ submitForm.addEventListener("click", function (e) {
     inputSoldDate.getMonth()
   ];
   var formattedSoldDate =
-    month + "/" + inputSoldDate.getDate() + "/" + inputSoldDate.getFullYear();
+    month +
+    "/" +
+    (inputSoldDate.getDate() + 1) +
+    "/" +
+    inputSoldDate.getFullYear();
 
   //Gets input value and places as cell innerHTML
   nameCell.innerHTML = productName.value;
@@ -166,6 +178,10 @@ submitForm.addEventListener("click", function (e) {
   priceCell.innerHTML = `${formatter.format(productPrice.value)}`;
   roiCell.innerHTML = `${formatter.format(productRoi.value)}`;
   conditionCell.innerHTML = productCondition.value;
+
+  if (soldDate.value == "") {
+    soldCell.innerHTML = "";
+  }
 
   //Give cell a class name
   nameCell.classList.add("product_name_td");
@@ -239,7 +255,7 @@ submitForm.addEventListener("click", function (e) {
   // roiPercentage.classList.add("percent");
   // roiPercentage.innerText = `${roiPercent}%`;
 
-  // totalPercent.append(roiPercentage);
+  // roi.appendChild(roiPercentage);
 
   // if (roiPercentage.innerHTML >= "1%") {
   //   roiPercentage.classList.add("profit");
@@ -277,7 +293,6 @@ submitForm.addEventListener("click", function (e) {
   // Create delete row button for each row
   const clearRow = document.createElement("button");
   clearRow.classList.add("clear_row");
-  // clearRow.classList.add("fas fa-minus-circle");
   clearRow.innerHTML = "-";
 
   // Deletes selected row from table
@@ -309,24 +324,41 @@ submitForm.addEventListener("click", function (e) {
     }
   });
 
+  // const btnOptions = document.createElement("button");
+  // btnOptions.classList.add("options_btn");
+  // btnOptions.setAttribute("onclick", "displayToggle()");
+  // btnOptions.innerHTML = "...";
+
+  const optionContainer = document.createElement("div");
+  optionContainer.classList.add("option_container");
+  // optionContainer.classList.add("hidden");
+
+  const btnEdit = document.createElement("button");
+  btnEdit.classList.add("edit_btn");
+  btnEdit.innerHTML = `<i class="fas fa-pen"></i>`;
+
   // Create delete row button for each row
   const clearRowAll = document.createElement("button");
   clearRowAll.classList.add("clear_row_all");
-  // clearRow.classList.add("fas fa-minus-circle");
-  clearRowAll.innerHTML = "...";
+  clearRowAll.classList.add("fas");
+  clearRowAll.classList.add("fa-trash");
 
-  // const editRow = document.createElement("button");
-  // const deleteRow = document.createElement("button");
-  // deleteRow.classList.add("delete_row");
-  // editRow.innerHTML = "Edit";
-  // deleteRow.innerHTML = "Delete";
+  newRow.append(optionContainer);
 
-  // clearRowAll.addEventListener("click", function () {
-  //   document.querySelector(".clear_row_all").style.visibility = "hidden";
-  //   document.querySelector(".delete_row").style.display = "block";
+  optionContainer.appendChild(btnEdit);
+  optionContainer.appendChild(clearRowAll);
+
+  // btnOptions.addEventListener("click", function () {
+  //   if (document.querySelector(".option_container").style.opacity === "0") {
+  //     document.querySelector(".option_container").style.opacity = "1";
+  //   } else {
+  //     document.querySelector(".option_container").style.opacity = "0";
+  //   }
   // });
 
+  // btnOptions.addEventListener("click", function () {
   // Deletes selected row from table
+
   clearRowAll.addEventListener("click", function (e) {
     if (!e.target.classList.contains("clear_row_all")) {
       return;
@@ -354,7 +386,178 @@ submitForm.addEventListener("click", function (e) {
       roi.classList.remove("lost");
       roi.classList.add("neutral");
     }
+
+    noData();
+    scrollPosition();
   });
+
+  btnEdit.addEventListener("click", function () {
+    var table = document.querySelector(".table_inventory");
+
+    for (var i = 1; i < table.rows.length; i++) {
+      table.rows[i].onclick = function () {
+        rIndex = this.rowIndex;
+        productName.value = this.cells[0].innerHTML;
+        productBrand.value = this.cells[1].innerHTML;
+        productSize.value = this.cells[2].innerHTML;
+        productStyleId.value = this.cells[3].innerHTML;
+        productStatus.value = this.cells[4].innerHTML;
+        var pDateValue = new Date(this.cells[5].innerHTML);
+        var formattingPDate =
+          pDateValue.getFullYear() +
+          "-" +
+          ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + pDateValue.getDate()).slice(-2);
+        purchaseDate.value = formattingPDate;
+        var sDateValue = new Date(this.cells[6].innerHTML);
+        var formattingSDate =
+          sDateValue.getFullYear() +
+          "-" +
+          ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + sDateValue.getDate()).slice(-2);
+        soldDate.value = formattingSDate;
+        productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
+        productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
+        productCondition.value = this.cells[9].innerHTML;
+      };
+    }
+
+    btnCancel.addEventListener("click", function () {
+      productName.value = "";
+      productBrand.value = "";
+      productSize.value = "";
+      productStyleId.value = "";
+      productStatus.value = "";
+      purchaseDate.value = "";
+      soldDate.value = "";
+      productPrice.value = "";
+      productRoi.value = "";
+      productCondition.value = "";
+
+      document.querySelector(".form_popup").style.display = "none";
+      document.querySelector(".form_popup_background").style.display = "none";
+      document.querySelector(".form_buttons").style.display = "flex";
+      document.querySelector(".edit_btns").style.display = "none";
+    });
+
+    editRow.addEventListener("click", function () {
+      table.rows[rIndex].cells[0].innerHTML = productName.value;
+      table.rows[rIndex].cells[1].innerHTML = productBrand.value;
+      table.rows[rIndex].cells[2].innerHTML = productSize.value;
+      table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
+      table.rows[rIndex].cells[4].innerHTML = productStatus.value;
+      table.rows[rIndex].cells[5].innerHTML = formattedPurchaseDate;
+      table.rows[rIndex].cells[6].innerHTML = formattedSoldDate;
+      table.rows[rIndex].cells[7].innerHTML = `${formatter.format(
+        productPrice.value
+      )}`;
+      table.rows[rIndex].cells[8].innerHTML = `${formatter.format(
+        productRoi.value
+      )}`;
+      table.rows[rIndex].cells[9].innerHTML = productCondition.value;
+
+      if (soldDate.value == "") {
+        soldCell.innerHTML = "";
+      }
+
+      if (table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") >= 1) {
+        roiCell.classList.add("profit");
+      } else if (
+        table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") == 0
+      ) {
+        roiCell.classList.add("neutral");
+      } else {
+        roiCell.classList.add("lost");
+      }
+
+      var updatedPriceTd = document.querySelectorAll(".product_price");
+      var updatedRoiTd = document.querySelectorAll(".product_roi");
+
+      var updatedSumPrice = 0;
+      var updatedSumRoi = 0;
+
+      //Goes through each price td to get the sum of total price
+      for (var i = 1; i < updatedPriceTd.length; i++) {
+        updatedSumPrice += parseFloat(
+          updatedPriceTd[i].innerHTML.replace(pattern, "")
+        );
+      }
+
+      //Goes through each roi td to get the sum of roi price
+      for (var i = 1; i < updatedRoiTd.length; i++) {
+        updatedSumRoi += parseFloat(
+          updatedRoiTd[i].innerHTML.replace(pattern, "")
+        );
+      }
+
+      //Sets the totalSpending innerHTML to the sumPrice of table
+      //Using formatter to convert value in currency(USD)
+      totalSpendings.innerHTML = `${formatter.format(updatedSumPrice)}`;
+
+      //Sets the roi innerHTML to the sumRoi of table
+      //Using formatter to convert value in currency(USD)
+      roi.innerHTML = `${formatter.format(updatedSumRoi)}`;
+
+      document.querySelector(".form_heading").style.display = "block";
+      document.querySelector(".edit_heading").style.display = "none";
+      document.querySelector(".edit_btns").style.display = "none";
+      document.querySelector(".form_buttons").style.display = "flex";
+      document.querySelector(".form_popup").style.display = "none";
+      document.querySelector(".form_popup_background").style.display = "none";
+    });
+
+    document.querySelector(".form_popup").style.display = "block";
+    document.querySelector(".form_popup_background").style.display = "block";
+    document.querySelector(".form_heading").style.display = "none";
+    document.querySelector(".edit_heading").style.display = "block";
+    document.querySelector(".form_buttons").style.display = "none";
+    document.querySelector(".edit_btns").style.display = "flex";
+  });
+
+  // });
+
+  // const editRow = document.createElement("button");
+  // const deleteRow = document.createElement("button");
+  // deleteRow.classList.add("delete_row");
+  // editRow.innerHTML = "Edit";
+  // deleteRow.innerHTML = "Delete";
+
+  // clearRowAll.addEventListener("click", function () {
+  //   document.querySelector(".clear_row_all").style.visibility = "hidden";
+  //   document.querySelector(".delete_row").style.display = "block";
+  // });
+
+  // Deletes selected row from table
+  // clearRowAll.addEventListener("click", function (e) {
+  //   if (!e.target.classList.contains("clear_row_all")) {
+  //     return;
+  //   }
+  //   const btn = e.target;
+  //   btn.closest("tr").remove();
+  //   productCount.innerHTML = tableInventory.rows.length - 1;
+  //   totalSpendings.innerHTML = formatter.format(
+  //     totalSpendings.innerHTML.replace(pattern, "") -
+  //       priceCell.innerHTML.replace(pattern, "")
+  //   );
+  //   roi.innerHTML = formatter.format(
+  //     roi.innerHTML.replace(pattern, "") -
+  //       roiCell.innerHTML.replace(pattern, "")
+  //   );
+
+  //   if (roi.innerHTML.replace(pattern, "") > "0.00") {
+  //     roi.classList.remove("lost");
+  //     roi.classList.add("profit");
+  //   } else if (roi.innerHTML.replace(pattern, "") < "0.00") {
+  //     roi.classList.remove("profit");
+  //     roi.classList.add("lost");
+  //   } else {
+  //     roi.classList.remove("profit");
+  //     roi.classList.remove("lost");
+  //     roi.classList.add("neutral");
+  //   }
+  // });
 
   // Clear table excluding first row and resets the # of Products count
   clearTable.addEventListener("click", function () {
@@ -363,19 +566,155 @@ submitForm.addEventListener("click", function (e) {
       productCount.innerHTML = 0;
       totalSpendings.innerHTML = "$0";
       roi.innerHTML = "$0";
-      // roi.classList.remove("lost");
+      roiPercentage.innerHTML = "0%";
       roi.classList.add("neutral");
+      roiPercentage.add("neutral");
     }
+
+    noData();
+    scrollPosition();
   });
+
+  // btnEdit.addEventListener("click", function () {
+
+  //   var table = document.querySelector(".table_inventory"),
+  //     rIndex;
+
+  //   for (var i = 1; i < table.rows.length; i++) {
+  //     table.rows[i].onclick = function () {
+  //       rIndex = this.rowIndex;
+  //       productName.value = this.cells[0].innerHTML;
+  //       productBrand.value = this.cells[1].innerHTML;
+  //       productSize.value = this.cells[2].innerHTML;
+  //       productStyleId.value = this.cells[3].innerHTML;
+  //       productStatus.value = this.cells[4].innerHTML;
+  //       var pDateValue = new Date(this.cells[5].innerHTML);
+  //       var formattingPDate =
+  //         pDateValue.getFullYear() +
+  //         "-" +
+  //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+  //         "-" +
+  //         ("0" + pDateValue.getDate()).slice(-2);
+  //       purchaseDate.value = formattingPDate;
+  //       var sDateValue = new Date(this.cells[6].innerHTML);
+  //       var formattingSDate =
+  //         sDateValue.getFullYear() +
+  //         "-" +
+  //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+  //         "-" +
+  //         ("0" + sDateValue.getDate()).slice(-2);
+  //       soldDate.value = formattingSDate;
+  //       productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
+  //       productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
+  //       productCondition.value = this.cells[9].innerHTML;
+  //     };
+  //   }
+
+  //   btnCancel.addEventListener("click", function () {
+  //     productName.value = "";
+  //     productBrand.value = "";
+  //     productSize.value = "";
+  //     productStyleId.value = "";
+  //     productStatus.value = "";
+  //     purchaseDate.value = "";
+  //     soldDate.value = "";
+  //     productPrice.value = "";
+  //     productRoi.value = "";
+  //     productCondition.value = "";
+
+  //     document.querySelector(".form_popup").style.display = "none";
+  //     document.querySelector(".form_popup_background").style.display = "none";
+  //     document.querySelector(".form_buttons").style.display = "flex";
+  //     document.querySelector(".edit_btns").style.display = "none";
+  //   });
+
+  //   //Edit row
+  //   editRow.addEventListener("click", function () {
+  //     table.rows[rIndex].cells[0].innerHTML = productName.value;
+  //     table.rows[rIndex].cells[1].innerHTML = productBrand.value;
+  //     table.rows[rIndex].cells[2].innerHTML = productSize.value;
+  //     table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
+  //     table.rows[rIndex].cells[4].innerHTML = productStatus.value;
+  //     table.rows[rIndex].cells[5].innerHTML = purchaseDate.value;
+  //     table.rows[rIndex].cells[6].innerHTML = soldDate.value;
+  //     table.rows[rIndex].cells[7].innerHTML = productPrice.value;
+  //     table.rows[rIndex].cells[8].innerHTML = productRoi.value;
+  //     table.rows[rIndex].cells[9].innerHTML = productCondition.value;
+
+  //     document.querySelector(".form_popup").style.display = "none";
+  //     document.querySelector(".form_popup_background").style.display = "none";
+  //   });
+
+  //   document.querySelector(".form_popup").style.display = "block";
+  //   document.querySelector(".form_popup_background").style.display = "block";
+  //   document.querySelector(".form_buttons").style.display = "none";
+  //   document.querySelector(".edit_btns").style.display = "flex";
+  // });
+
+  // [].slice
+  //   .call(document.querySelectorAll(".table_inventory tr"), 1)
+  //   .forEach(function (row) {
+  //     row.addEventListener("click", function () {
+  //       var ths = document.querySelectorAll(".table_inventory th");
+  //       var obj = [].reduce.call(
+  //         ths,
+  //         function (obj, th, i) {
+  //           obj[th.textContent] = row.cells[i].textContent;
+  //           return obj;
+  //         },
+  //         {}
+  //       );
+  //       const nameValue = row.cells[0].textContent;
+  //       const brandValue = row.cells[1].textContent;
+  //       const sizeValue = row.cells[2].textContent;
+  //       const styleIdValue = row.cells[3].textContent;
+  //       const statusValue = row.cells[4].textContent;
+  //       var pDateValue = new Date(row.cells[5].textContent);
+  //       var formattingPDate =
+  //         pDateValue.getFullYear() +
+  //         "-" +
+  //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+  //         "-" +
+  //         ("0" + pDateValue.getDate()).slice(-2);
+  //       var sDateValue = new Date(row.cells[6].textContent);
+  //       var formattingSDate =
+  //         sDateValue.getFullYear() +
+  //         "-" +
+  //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+  //         "-" +
+  //         ("0" + sDateValue.getDate()).slice(-2);
+  //       const priceValue = row.cells[7].textContent.replace(pattern, "");
+  //       const roiValue = row.cells[8].textContent.replace(pattern, "");
+  //       const conditionValue = row.cells[9].textContent;
+
+  //       productName.value = nameValue;
+  //       productBrand.value = brandValue;
+  //       productSize.value = sizeValue;
+  //       productStyleId.value = styleIdValue;
+  //       productStatus.value = statusValue;
+  //       purchaseDate.value = formattingPDate;
+  //       soldDate.value = formattingSDate;
+  //       productPrice.value = priceValue;
+  //       productRoi.value = roiValue;
+  //       productCondition.value = conditionValue;
+
+  //       row.document.querySelector(".product_name_td").innerHTML =
+  //         productName.value;
+
+  //       sele
+  //     });
+  //   });
 
   tableInventory.append(newRow);
 
-  // console.log(newRow);
-
-  nameCell.append(clearRow);
-  conditionCell.after(clearRowAll);
+  // nameCell.append(clearRow);
+  // newRow.append(btnOptions);
+  // newRow.appendChild(btnOptions);
   // roiCell.after(deleteRow);
   //   tableInventory.innerHTML = newRow;
+
+  noData();
+  scrollPosition();
 
   document.querySelector(".product_name").style.borderColor = "#d3d3d3";
   document.querySelector(".product_date").style.borderColor = "#d3d3d3";
@@ -386,3 +725,86 @@ submitForm.addEventListener("click", function (e) {
 
   document.querySelector(".form_popup_background").style.display = "none";
 });
+
+function noData() {
+  if (productCount.innerHTML >= 1) {
+    document.querySelector(".empty_table").style.display = "none";
+  } else {
+    document.querySelector(".empty_table").style.display = "block";
+  }
+}
+
+function scrollPosition() {
+  if (productCount.innerHTML >= 1) {
+    document.querySelector(".table_scroll").style.paddingBottom = "0rem";
+  } else {
+    document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
+  }
+}
+
+// var selectedRow = null;
+
+// function onFormSubmit() {
+//   event.preventDefault();
+//   var formData = readFormData();
+//   if (selectedRow === null) {
+//     insertData(formData);
+//   } else {
+//     updateRecord(formData);
+//   }
+// }
+
+// function readFormData() {
+//   var formData = {};
+//   formData[".product_name"] = document.querySelector(".product_name").value;
+//   formData[".product_brand"] = document.querySelector(".product_brand").value;
+//   formData[".product_size"] = document.querySelector(".product_size").value;
+//   formData[".product_style_id"] =
+//     document.querySelector(".product_style_id").value;
+//   formData[".product_status"] = document.querySelector(".product_status").value;
+//   formData[".product_date"] = document.querySelector(".product_date").value;
+//   formData[".product_date_sold"] =
+//     document.querySelector(".product_date_sold").value;
+//   formData[".product_price"] = document.querySelector(".product_price").value;
+//   formData[".product_roi"] = document.querySelector(".product_roi").value;
+//   formData[".product_condition"] =
+//     document.querySelector(".product_condition").value;
+//   return formData;
+// }
+
+// function insertNewRecord(data) {
+//   var table = document
+//     .querySelector(".table_inventory")
+//     .getElementsByTagName("tbody")[0];
+//   var newRow = table.insertRow(table.length);
+//   var cell1 = newRow.insertCell(0);
+//   cell1.innerHTML = data.productName;
+//   var cell2 = newRow.insertCell(1);
+//   cell2.innerHTML = data.productBrand;
+//   var cell3 = newRow.insertCell(2);
+//   cell3.innerHTML = data.productSize;
+//   var cell4 = newRow.insertCell(3);
+//   cell4.innerHTML = data.productStyleId;
+//   var cell5 = newRow.insertCell(4);
+//   cell51.innerHTML = data.productStatus;
+//   var cell6 = newRow.insertCell(5);
+//   cell6.innerHTML = data.purchaseDate;
+//   var cell7 = newRow.insertCell(6);
+//   cell7.innerHTML = data.soldCell;
+//   var cell8 = newRow.insertCell(7);
+//   cell8.innerHTML = data.productPrice;
+//   var cell9 = newRow.insertCell(8);
+//   cell9.innerHTML = data.productRoi;
+//   var cell10 = newRow.insertCell(9);
+//   cell10.innerHTML = data.productCondition;
+// }
+
+// function onEdit(td) {
+//   selectedRow = td.parentElement.parentElement;
+//   document.querySelector(".product_name").value =
+//     selectedRow.cells[0].innerHTML;
+// }
+
+// function updateRecord(formData) {
+//   selectedRow.cells[0].innerHTML = formData.productName;
+// }
