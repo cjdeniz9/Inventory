@@ -673,7 +673,7 @@ td {
   }
 }
 
-@media only screen and (min-width: 1504px) {
+@media only screen and (min-width: 1000px) {
   .logo {
     display: flex;
     width: 12.75%;
