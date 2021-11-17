@@ -11,50 +11,58 @@
     ></script>
     <script src="script.js" defer></script>
   </head>
+  <header>
+    <div class="logo">
+      <i class="fas fa-cubes logo_home"></i>
+      <span class="name_home">TRACKER</span>
+      <div class="drop_down_menu">
+        <i class="fas fa-bars hamburger_menu"></i>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav_links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="login_btn">
+          <a href="login.html"><button class="btn_login">Login</button></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="menu_background"></div>
+  </header>
   <body>
-    <header>
-      <div class="logo">
-        <i class="fas fa-cubes logo_home"></i>
-        <span class="name_login">TRACKER</span>
+    <div class="content_container">
+      <div class="info_box">
+        <h1 class="home_heading">Simpiflying Inventory Management</h1>
+        <h4 class="home_subheading">
+          Use our tools to easily manage products, to have a better
+          understanding of the return on investment.
+        </h4>
       </div>
-      <nav>
-        <ul class="nav_links">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="home.html">Contact</a></li>
-          <!-- <li><a href="index.html">Inventory</a></li> -->
-          <li>
-            <a href="login.html"><button class="btn_login">Login</button></a>
-          </li>
-        </ul>
-      </nav>
-      <!-- <a class="cta" href="#"><button>Contact</button></a> -->
-    </header>
-    <div class="features_box">
-      <h2 class="features_heading">Features:</h2>
-      <h3 class="features_list">
-        <i class="fas fa-circle"></i> Track inventory by adding and editing
-        items
-      </h3>
-      <h3 class="features_list">
-        <i class="fas fa-circle"></i> Search for specified items throughout your
-        inventory
-      </h3>
-      <h3 class="features_list">
-        <i class="fas fa-circle"></i> Analyze overall Return on Investment
-      </h3>
-      <div class="start_container">
-        <a href="login.html"><button class="start_btn">Get Started</button></a>
+      <div class="features_container">
+        <div class="features_text_container">
+          <h2 class="features_heading">Features:</h2>
+          <h3 class="features_list">
+            <i class="fas fa-circle"></i> Track inventory by adding and editing
+            items
+          </h3>
+          <h3 class="features_list">
+            <i class="fas fa-circle"></i> Search for specified items throughout
+            your inventory
+          </h3>
+          <h3 class="features_list">
+            <i class="fas fa-circle"></i> Analyze overall Return on Investment
+          </h3>
+        </div>
+        <div class="start_container">
+          <a href="login.html"
+            ><button class="start_btn">Get Started</button></a
+          >
+        </div>
       </div>
-    </div>
-    <div class="info_box">
-      <h1 class="home_heading">Simpiflying Inventory Management</h1>
-      <h4 class="home_subheading">
-        Use our tools to easily manage products, to have a better understanding
-        of the return on investment.
-      </h4>
-    </div>
-    <div class="dashboard_container">
-      <img class="inventory_ui" src="images/dashboard.svg" />
+      <div class="dashboard_container">
+        <img class="inventory_ui" src="images/dashboard.svg" />
+      </div>
     </div>
   </body>
 </html>

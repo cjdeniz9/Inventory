@@ -1,4 +1,4 @@
-// const dropDownMenu = document.querySelector(".menu_btn");
+const dropDownMenu = document.querySelector(".menu_btn");
 
 const navBar = document.querySelector(".inventory_left");
 
@@ -70,11 +70,32 @@ function searchProduct() {
 // Checks if menu icon is clicked and displays visible if true
 function checkMenuStatus() {
   if (document.querySelector(".menu_btn").checked) {
-    document.querySelector(".nav_bar").style.display = "block";
+    document.querySelector("nav ul").style.display = "block";
   } else {
-    document.querySelector(".nav_bar").style.display = "none";
+    document.querySelector("nav ul").style.display = "none";
   }
 }
+
+const navSlide = () => {
+  const menu = document.querySelector(".drop_down_menu");
+  const nav = document.querySelector(".nav_links");
+  const navBackground = document.querySelector(".menu_background");
+  const body = document.querySelector("body");
+
+  menu.addEventListener("click", function () {
+    nav.classList.toggle("nav_active");
+    navBackground.classList.toggle("nav_active");
+    body.classList.toggle("no_scroll");
+  });
+
+  navBackground.addEventListener("click", function () {
+    nav.classList.toggle("nav_active");
+    navBackground.classList.toggle("nav_active");
+    body.classList.toggle("no_scroll");
+  });
+};
+
+navSlide();
 
 // function displayToggle() {
 //   if (document.querySelector(".option_container").style.opacity === "0") {
@@ -109,6 +130,13 @@ closeForm.addEventListener("click", () => {
   document.querySelector(".r_name").style.opacity = "0";
   document.querySelector(".r_date").style.opacity = "0";
   document.querySelector(".r_price").style.opacity = "0";
+});
+
+dropDownMenu.addEventListener("click", function () {
+  console.log("a");
+  // if ((document.querySelector("nav").style.display = "none")) {
+  //   document.querySelector("nav").style.display = "block";
+  // }
 });
 
 // Event Listener for Form
