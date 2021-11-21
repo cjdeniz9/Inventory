@@ -51,83 +51,140 @@
         <div class="nav_content">
           <div class="nav_border"></div>
           <span class="menu_text">Menu</span>
-          <a href="#" class="nav_link">
-            <div class="nav_icon_container">
-              <i class="fas fa-chart-pie"></i>
-            </div>
-            <span class="nav_link_label">Dashboard</span>
-          </a>
-          <a href="#" class="nav_link">
-            <div class="nav_icon_container">
-              <i class="fas fa-box"></i>
-            </div>
-            <span class="nav_link_label">Inventory</span>
-          </a>
-          <a href="#" class="nav_link">
-            <div class="nav_icon_container">
-              <i class="fas fa-sliders-h"></i>
-            </div>
-            <span class="nav_link_label">Setting</span>
-          </a>
-          <div class="nav_content_bottom">
-            <a href="home.html" class="nav_link">
+          <div class="user_nav_a">
+            <a href="#" class="nav_link">
               <div class="nav_icon_container">
-                <span class="material-icons-outlined" id="logout_icon">
-                  logout
-                </span>
+                <i class="fas fa-chart-pie"></i>
               </div>
-              <span class="nav_link_label">Sign Out</span>
+              <span class="nav_link_label">Dashboard</span>
             </a>
+          </div>
+          <div class="user_nav_a">
+            <a href="#" class="nav_link">
+              <div class="nav_icon_container">
+                <i class="fas fa-box"></i>
+              </div>
+              <span class="nav_link_label">Inventory</span>
+            </a>
+          </div>
+          <div class="user_nav_a">
+            <a href="#" class="nav_link">
+              <div class="nav_icon_container">
+                <i class="fas fa-sliders-h"></i>
+              </div>
+              <span class="nav_link_label">Setting</span>
+            </a>
+          </div>
+          <div class="nav_content_bottom">
+            <div class="user_nav_a">
+              <a href="home.html" class="nav_link">
+                <div class="nav_icon_container">
+                  <span class="material-icons-outlined" id="logout_icon">
+                    logout
+                  </span>
+                </div>
+                <span class="nav_link_label">Sign Out</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="container inventory_right">
-      <div><h1 class="inventory_heading">Inventory</h1></div>
+      <div class="user_nav_mobile">
+        <div class="logo">
+          <i class="fas fa-cubes logo_home"></i>
+          <div class="nav_menu_mobile">
+            <i class="fas fa-bars hamburger_menu"></i>
+          </div>
+        </div>
+        <div class="user_nav_mobile_content">
+          <div class="nav_content_mobile">
+            <div class="user_nav_a">
+              <a href="#" class="nav_link">
+                <div class="nav_icon_container">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+                <span class="nav_link_label">Dashboard</span>
+              </a>
+            </div>
+            <div class="user_nav_a_mobile">
+              <a href="#" class="nav_link">
+                <div class="nav_icon_container">
+                  <i class="fas fa-box"></i>
+                </div>
+                <span class="nav_link_label">Inventory</span>
+              </a>
+            </div>
+            <div class="user_nav_a">
+              <a href="#" class="nav_link">
+                <div class="nav_icon_container">
+                  <i class="fas fa-sliders-h"></i>
+                </div>
+                <span class="nav_link_label">Setting</span>
+              </a>
+            </div>
+            <div class="nav_content_bottom">
+              <div class="user_nav_a">
+                <a href="home.html" class="nav_link">
+                  <div class="nav_icon_container">
+                    <span class="material-icons-outlined" id="logout_icon">
+                      logout
+                    </span>
+                  </div>
+                  <span class="nav_link_label">Sign Out</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user_menu_background"></div>
+      </div>
+      <div class="heading_container">
+        <h1 class="inventory_heading">Inventory</h1>
+      </div>
       <div class="mid_content left">
         <div class="inventory_info_box">
           <div class="stat_box">
             <div class="icon_background count">
               <i class="fas fa-box-open"></i>
             </div>
-
             <div class="total_number"><h2 class="product_count">0</h2></div>
-            <p>Product Count</p>
+            <div class="stat_box_label"><p>Product Count</p></div>
           </div>
-
           <div class="stat_box">
             <div class="icon_background cost">
               <i class="fas fa-tag"></i>
             </div>
-
             <div class="total_number"><h2 class="total_spendings">$0</h2></div>
-            <p>Total Spendings</p>
+            <div class="stat_box_label"><p>Total Spendings</p></div>
           </div>
-
           <div class="stat_box">
             <div class="icon_background return_on_investment">
               <i class="fas fa-chart-line"></i>
             </div>
-
             <div class="total_number"><h2 class="roi">$0</h2></div>
             <!-- <div><h5 class="total_percent">0%</h5></div> -->
-            <p>Return on Investment</p>
+            <div class="stat_box_label"><p>Profits</p></div>
           </div>
         </div>
       </div>
       <div class="input_container">
-        <input
-          class="search_product"
-          type="text"
-          onkeyup="searchProduct()"
-          placeholder="Search..."
-        />
-        <span class="material-icons-outlined" id="search_icon"> search </span>
+        <div class="search_bar">
+          <input
+            class="search_product"
+            type="text"
+            onkeyup="searchProduct()"
+            placeholder="Search..."
+          >
+          <span class="material-icons-outlined" id="search_icon"> search </span>
+        </input>
+        </div>
         <!-- <div class="mid_content right"> -->
         <!-- <div class="btn_container"> -->
         <div class="buttons">
           <button class="open_form">
-            <p class="add_symbol">+</p>
+            <span class="add_symbol">+</span>
           </button>
           <button class="clear_table" type="submit">
             <img
@@ -145,8 +202,10 @@
         <div class="form_popup_background">
           <div class="form_popup">
             <div class="inventory_form" name="Form">
-              <span class="form_heading">Add New Item</span>
-              <span class="edit_heading">Edit Item</span>
+              <div class="form_header">
+                <span class="form_heading">Add New Item</span>
+                <span class="edit_heading">Edit Item</span>
+              </div>
               <div class="inventory_form_row">
                 <div class="input_section name">
                   <label for="name" class="label_name">
@@ -260,7 +319,7 @@
                 </div>
                 <div class="input_section return">
                   <label for="roi" class="label_name">
-                    <span class="content_name">Return on Investment</span>
+                    <span class="content_name">Profit</span>
                   </label>
                   <input
                     class="product_roi"

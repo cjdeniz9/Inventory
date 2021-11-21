@@ -76,12 +76,13 @@ function checkMenuStatus() {
   }
 }
 
-const navSlide = () => {
-  const menu = document.querySelector(".drop_down_menu");
-  const nav = document.querySelector(".nav_links");
-  const navBackground = document.querySelector(".menu_background");
-  const body = document.querySelector("body");
+// const navSlide = () => {
+const menu = document.querySelector(".drop_down_menu");
+const nav = document.querySelector(".nav_links");
+const navBackground = document.querySelector(".menu_background");
+const body = document.querySelector("body");
 
+if (menu) {
   menu.addEventListener("click", function () {
     nav.classList.toggle("nav_active");
     navBackground.classList.toggle("nav_active");
@@ -93,9 +94,49 @@ const navSlide = () => {
     navBackground.classList.toggle("nav_active");
     body.classList.toggle("no_scroll");
   });
-};
+}
 
-navSlide();
+const userMenu = document.querySelector(".nav_menu_mobile");
+const userNav = document.querySelector(".user_nav_mobile_content");
+const userBackground = document.querySelector(".user_menu_background");
+
+if (userMenu) {
+  userMenu.addEventListener("click", function () {
+    userNav.classList.toggle("user_nav_active");
+    userBackground.classList.toggle("user_nav_active");
+    body.classList.toggle("no_scroll");
+  });
+
+  userBackground.addEventListener("click", function () {
+    userNav.classList.toggle("user_nav_active");
+    userBackground.classList.toggle("user_nav_active");
+    body.classList.toggle("no_scroll");
+  });
+}
+// };
+
+// navSlide();
+
+// const userNavSlide = () => {
+//   const navMenu = document.querySelector(".drop_nav");
+//   const userNav = document.querySelector(".user_nav");
+//   const navBackground = document.querySelector(".menu_background");
+//   const body = document.querySelector("body");
+
+//   navMenu.addEventListener("click", function () {
+//     userNav.classList.toggle("nav_active");
+//     navBackground.classList.toggle("nav_active");
+//     body.classList.toggle("no_scroll");
+//   });
+
+//   navBackground.addEventListener("click", function () {
+//     nav.classList.toggle("nav_active");
+//     navBackground.classList.toggle("nav_active");
+//     body.classList.toggle("no_scroll");
+//   });
+// };
+
+// userNavSlide();
 
 // function displayToggle() {
 //   if (document.querySelector(".option_container").style.opacity === "0") {
@@ -130,13 +171,6 @@ closeForm.addEventListener("click", () => {
   document.querySelector(".r_name").style.opacity = "0";
   document.querySelector(".r_date").style.opacity = "0";
   document.querySelector(".r_price").style.opacity = "0";
-});
-
-dropDownMenu.addEventListener("click", function () {
-  console.log("a");
-  // if ((document.querySelector("nav").style.display = "none")) {
-  //   document.querySelector("nav").style.display = "block";
-  // }
 });
 
 // Event Listener for Form
@@ -466,6 +500,8 @@ submitForm.addEventListener("click", function (e) {
 
       document.querySelector(".form_popup").style.display = "none";
       document.querySelector(".form_popup_background").style.display = "none";
+      document.querySelector(".form_heading").style.display = "block";
+      document.querySelector(".edit_heading").style.display = "none";
       document.querySelector(".form_buttons").style.display = "flex";
       document.querySelector(".edit_btns").style.display = "none";
     });
@@ -766,7 +802,7 @@ function scrollPosition() {
   if (productCount.innerHTML >= 1) {
     document.querySelector(".table_scroll").style.paddingBottom = "0rem";
   } else {
-    document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
+    document.querySelector(".table_scroll").style.paddingBottom = "37rem";
   }
 }
 
