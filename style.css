@@ -330,6 +330,7 @@ nav ul li a {
   z-index: 10;
   width: 100%;
   list-style: none;
+  transition: transform 0.2s ease-in;
   transform: translateX(100%);
 }
 
@@ -346,7 +347,7 @@ nav ul li a {
 }
 
 .nav_content_mobile {
-  width: 90%;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -362,7 +363,15 @@ nav ul li a {
 }
 
 .nav_icon_container {
-  padding-right: 1rem;
+  padding-right: 1.25rem;
+}
+
+.logout_label {
+  margin-left: -0.25rem;
+}
+
+#logout_icon {
+  font-size: 1.25em;
 }
 
 .user_menu_background {
@@ -374,7 +383,7 @@ nav ul li a {
   height: 100%;
   overflow: auto;
   transform: translateX(100%);
-  /* transition: transform 0.2s ease-in; */
+  transition: transform 0.2s ease-in;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.6);
 }
@@ -434,34 +443,49 @@ nav ul li a:hover {
 
 .heading_container {
   width: 90%;
-  padding-left: 2rem;
+  padding-left: 1.75rem;
   margin-bottom: -1rem;
 }
 
 .inventory_info_box {
-  width: 75%;
+  width: 85%;
   padding-top: 2rem;
   margin: auto;
   display: block;
 }
 
 .stat_box {
-  width: 90%;
+  width: 100%;
   /* height: 75px; */
   margin-bottom: 1rem;
   /* margin-bottom: -1rem; */
-  border-radius: 3px;
-  -moz-box-shadow: 0 0 5px 3px #9d9d9d;
-  -webkit-box-shadow: 0 0 3px 5px #9d9d9d;
-  box-shadow: 0 0 5px 3px #9d9d9d;
+  border-radius: 2.5px;
+  -moz-box-shadow: 0 0 5px 3px #e0e0e0;
+  -webkit-box-shadow: 0 0 3px #e0e0e0;
+  box-shadow: 0 0 2.5px 1px #e0e0e0;
+}
+
+.count_box {
+  float: left;
+  width: 48%;
+}
+
+.cost_box {
+  float: right;
+  width: 48%;
+}
+
+.profit_box {
+  margin-top: 6.3rem;
+  width: 100%;
 }
 
 .icon_background {
   width: 2rem;
   height: 2rem;
   float: right;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
+  margin-top: 0.75rem;
+  margin-right: 0.75rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -493,15 +517,15 @@ nav ul li a:hover {
 }
 
 .total_number {
-  font-size: 1em;
+  font-size: 0.8em;
   text-align: left;
 }
 
 .product_count,
 .total_spendings,
 .roi {
-  padding-top: 0.4rem;
-  margin-left: 2rem;
+  padding-top: 1rem;
+  margin-left: 1rem;
 }
 
 .percent {
@@ -512,10 +536,11 @@ nav ul li a:hover {
 }
 
 p {
-  font-size: 1em;
+  font-size: 0.9em;
   color: #8d8681;
-  margin-left: 2rem;
-  /* margin-top: 1rem; */
+  margin-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .p_roi {
@@ -525,32 +550,37 @@ p {
 }
 
 .input_container {
-  width: 75%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 1.25rem auto;
+}
+
+.search_bar {
+  width: 65%;
+  float: left;
 }
 
 .search_product {
-  margin-top: 0.75rem;
   margin-bottom: 1rem;
 }
 
 #search_icon {
   position: absolute;
-  margin-top: 1rem;
-  margin-left: -2rem;
+  margin-top: 0.25rem;
+  margin-left: -1.75rem;
   font-size: 22px;
 }
 
 .buttons {
-  width: 90%;
+  width: 35%;
+  float: right;
   display: flex;
   /* padding-right: 0.25rem; */
   height: auto;
 }
 
 .clear_table {
-  width: 48%;
-  height: 30px;
+  width: 45%;
+  height: 3.6vh;
   border-radius: 3px;
   color: #fff;
   background-color: #eef1f6;
@@ -570,8 +600,8 @@ p {
 }
 
 .open_form {
-  width: 48%;
-  height: 30px;
+  width: 45%;
+  height: 3.6vh;
   border-radius: 3px;
   background-color: #006ee6;
   border: none;
@@ -872,7 +902,7 @@ input::-webkit-inner-spin-button {
 
 .form_popup {
   width: 90%;
-  height: 59%;
+  height: 58.5%;
 }
 
 .form_heading {
@@ -901,6 +931,11 @@ input::-webkit-inner-spin-button {
   width: 10%;
   display: flex;
   float: left;
+}
+
+#price_input,
+#roi_input {
+  padding-left: 0.5rem;
 }
 
 .edit_btns {
@@ -945,13 +980,13 @@ table {
   /* margin-right: auto; */
   /* margin-left: auto; */
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
+  margin-top: 1.5rem;
   border-collapse: collapse;
   background-color: white;
   text-align: left;
-  /* border-radius: 5px 5px 0 0; */
+  border-top: none;
   overflow: auto;
-  box-shadow: 0 0px 5px #e1e5ee;
 }
 
 table thead tr {
@@ -961,15 +996,11 @@ table thead tr {
   color: black;
   font-size: 4px;
   text-align: left;
-  /* font-family: "Exo", sans-serif;
-  font-family: "Nanum Gothic", sans-serif;
-  font-family: "Quicksand", sans-serif; */
 }
 
 th {
   font-family: sans-serif;
-  /* font-weight: 1000; */
-  font-size: 10px;
+  border-bottom: 0.75px solid #020a3c;
 }
 
 td {
@@ -978,13 +1009,9 @@ td {
   text-align: left;
 }
 
-/* tr:nth-of-type(even) {
-  background-color: #f4f6fb;
-} */
-
 th,
 td {
-  padding: 12px 10px;
+  padding: 12px 1.5rem;
 }
 
 .date_purchased_th,
@@ -993,7 +1020,7 @@ td {
 .product_price_th,
 .product_size_th,
 .product_roi_th {
-  font-size: 16px;
+  font-size: 3.5em;
 }
 
 .date_purchased_td,
@@ -1002,7 +1029,12 @@ td {
 .product_price_td,
 .product_size_td,
 .product_roi_td {
-  font-size: 11px;
+  font-size: 0.9em;
+}
+
+.product_price,
+.product_roi {
+  padding-left: 1.4rem;
 }
 
 .clear_row_all {
@@ -1054,7 +1086,7 @@ td {
 
 .empty_table {
   position: absolute;
-  top: 75%;
+  top: 65%;
   left: 45%;
 }
 
@@ -1645,8 +1677,6 @@ td {
   }
 
   .login {
-    color: #031163;
-    font-weight: 550;
     font-size: 3.5em;
   }
 
