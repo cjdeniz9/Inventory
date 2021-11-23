@@ -810,11 +810,6 @@ input::-webkit-inner-spin-button {
   width: 33%;
 }
 
-.product_price,
-.product_roi {
-  padding-left: 2rem;
-}
-
 .dollar_sign {
   position: absolute;
   margin-top: 0.1rem;
@@ -977,16 +972,15 @@ input::-webkit-inner-spin-button {
 
 table {
   color: black;
-  /* margin-right: auto; */
-  /* margin-left: auto; */
-  margin: 0 auto;
-  width: 90%;
-  margin-top: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
   border-collapse: collapse;
   background-color: white;
   text-align: left;
-  border-top: none;
+  /* border-radius: 5px 5px 0 0; */
   overflow: auto;
+  box-shadow: 0 0px 5px #e1e5ee;
 }
 
 table thead tr {
@@ -996,11 +990,15 @@ table thead tr {
   color: black;
   font-size: 4px;
   text-align: left;
+  /* font-family: "Exo", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+  font-family: "Quicksand", sans-serif; */
 }
 
 th {
   font-family: sans-serif;
-  border-bottom: 0.75px solid #020a3c;
+  /* font-weight: 1000; */
+  font-size: 10px;
 }
 
 td {
@@ -1009,9 +1007,13 @@ td {
   text-align: left;
 }
 
+/* tr:nth-of-type(even) {
+  background-color: #f4f6fb;
+} */
+
 th,
 td {
-  padding: 12px 1.5rem;
+  padding: 12px 27px;
 }
 
 .date_purchased_th,
@@ -1020,7 +1022,7 @@ td {
 .product_price_th,
 .product_size_th,
 .product_roi_th {
-  font-size: 3.5em;
+  font-size: 16px;
 }
 
 .date_purchased_td,
@@ -1029,12 +1031,7 @@ td {
 .product_price_td,
 .product_size_td,
 .product_roi_td {
-  font-size: 0.9em;
-}
-
-.product_price,
-.product_roi {
-  padding-left: 1.4rem;
+  font-size: 11px;
 }
 
 .clear_row_all {
@@ -1065,7 +1062,7 @@ td {
 }
 
 .sold {
-  color: #358856;
+  color: #45b6fe;
 }
 
 .pending {
@@ -1343,6 +1340,11 @@ td {
     font-size: 1.25em;
   }
 
+  .heading_container {
+    width: 90%;
+    padding-left: 2.5rem;
+  }
+
   .inventory_heading {
     font-size: 30px;
   }
@@ -1357,6 +1359,21 @@ td {
     width: 31%;
   }
 
+  .count_box {
+    float: none;
+    width: 32%;
+  }
+
+  .cost_box {
+    float: none;
+    width: 32%;
+  }
+
+  .profit_box {
+    margin-top: 0rem;
+    width: 32%;
+  }
+
   .total_number {
     font-size: 20px;
     text-align: left;
@@ -1364,7 +1381,7 @@ td {
   }
 
   p {
-    font-size: 1em;
+    font-size: 1.1em;
     margin-top: 0px;
   }
 
@@ -1375,25 +1392,23 @@ td {
   .input_container {
     width: 90%;
     display: flex;
-    padding-bottom: 1rem;
   }
 
   .search_product {
-    width: 40%;
+    width: 50%;
     padding: 1rem 0.5rem;
     margin-left: 0;
     margin-bottom: 0.5rem;
   }
 
   #search_icon {
-    margin-top: 1.2rem;
-    margin-left: 15.5rem;
+    margin-top: 0.45rem;
+    margin-left: -2rem;
   }
 
   .buttons {
     width: 25%;
-    margin-top: 0.725rem;
-    margin-right: 0;
+    margin-left: 5rem;
   }
 
   .open_form,
@@ -1416,7 +1431,7 @@ td {
     font-size: 16px;
   }
 
-  .product_name_th,
+  /* .product_name_th,
   .product_price_th,
   .product_size_th,
   .product_roi_th {
@@ -1432,7 +1447,7 @@ td {
 
   .clear_row {
     margin-top: 1px;
-  }
+  } */
 
   .empty_table {
     top: 55%;
@@ -1762,6 +1777,20 @@ td {
     color: #9e99ff;
   }
 
+  .send_btn {
+    padding-top: 1.75rem;
+  }
+
+  .return_login {
+    font-size: 1.25em;
+    text-decoration: none;
+    color: #6c63ff;
+  }
+
+  .return_login:hover {
+    color: #9e99ff;
+  }
+
   .logo_home_link {
     text-decoration: none;
   }
@@ -2003,11 +2032,14 @@ td {
     width: 82.5%;
   }
 
+  .heading_container {
+    width: 90%;
+  }
+
   .inventory_heading {
     font-size: 3em;
-    margin-left: 0.25rem;
     padding-bottom: 1.5rem;
-    color: #010b3c;
+    margin-left: -0.5rem;
   }
 
   .mid_content {
@@ -2041,6 +2073,7 @@ td {
     text-align: left;
     margin-top: 3rem;
     margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
   }
 
   p {
@@ -2048,13 +2081,13 @@ td {
   }
 
   .stat_box_label {
+    padding-left: 0.25rem;
     padding-bottom: 1rem;
   }
 
   .input_container {
     width: 100%;
-    padding-bottom: 0.25rem;
-    /* background-color: #1338be; */
+    margin: 0.25rem auto;
   }
 
   .search_bar {
@@ -2062,9 +2095,8 @@ td {
   }
 
   .search_product {
-    width: 20.5%;
-    margin-left: 2.25rem;
-    margin-top: 1rem;
+    width: 23.15%;
+    margin-left: 2rem;
     padding: 1.1rem 0.75rem;
     padding-right: 3rem;
     border-style: solid;
@@ -2077,7 +2109,7 @@ td {
 
   #search_icon {
     position: absolute;
-    margin-top: 1.35rem;
+    margin-top: 0.45rem;
     margin-left: -2.25rem;
     font-size: 1.75em;
   }
@@ -2098,9 +2130,9 @@ td {
     /* margin: -1.875rem 2.35rem; */
     /* position: absolute; */
     /* right: 0; */
-    margin-right: 3.25rem;
+    margin-right: 2.5rem;
     display: flex;
-    width: 10%;
+    width: 15%;
   }
 
   .form_popup {
@@ -2111,7 +2143,7 @@ td {
 
   @keyframes drop {
     100% {
-      transform: translateY(630px);
+      transform: translateY(686px);
       opacity: 1;
     }
   }
@@ -2146,9 +2178,10 @@ td {
     padding: 1rem 0.5rem;
   }
 
-  .product_price,
-  .product_roi {
-    padding-left: 2.7rem;
+  #price_input,
+  #roi_input {
+    font-size: 0.9em;
+    padding-left: 2.5rem;
   }
 
   .shoe_size {
@@ -2215,12 +2248,10 @@ td {
   }
 
   .table_scroll {
-    width: 94%;
-    /* height: 32rem; */
-    /* position: fixed; */
+    width: 95%;
     overflow-y: hidden;
     margin-left: 2.25rem;
-    padding-bottom: 37rem;
+    padding-bottom: 37.5rem;
   }
 
   *::-webkit-scrollbar {
@@ -2238,156 +2269,61 @@ td {
 
   table {
     /* height: 32rem; */
-    width: 90%;
+    min-width: 100rem;
   }
 
-  .product_name_th,
-  .product_brand_th,
-  .product_size_th,
-  .product_style_id_th,
-  .product_status_th,
-  .date_purchased_th,
-  .date_sold_th,
-  .product_price_th,
-  .product_roi_th,
-  .product_condition_th {
+  .table_inventory th {
     font-family: sans-serif;
     color: rgba(0, 0, 0, 0.9);
     font-weight: 550;
-    font-size: 14.5px;
+    font-size: 4em;
   }
 
-  .product_name_td,
-  .product_brand_td,
-  .product_size_td,
-  .product_style_id_td,
-  .product_status_td,
-  .date_purchased_td,
-  .date_sold_td,
-  .product_price_td,
-  .product_roi_td,
-  .product_condition_td {
-    font-size: 14px;
-  }
-
-  .product_name_th {
-    width: 20rem;
-  }
-
-  .product_brand_th {
-    width: 7rem;
-  }
-
-  .product_size_th {
-    width: 3rem;
-  }
-
-  .product_style_id_th {
-    width: 7rem;
-  }
-
-  .product_status_th {
-    width: 5rem;
-  }
-
-  .date_purchased_th {
-    width: 10rem;
-  }
-  .date_sold_th {
-    width: 8rem;
-  }
-  .product_price_th {
-    width: 7rem;
-  }
-  .product_roi_th {
-    width: 7rem;
-  }
-
-  .product_condition_th {
-    width: 8rem;
-  }
-
-  table {
-    /* height: 32rem; */
-    width: 100rem;
-  }
-
-  .product_name_th,
-  .product_brand_th,
-  .product_size_th,
-  .product_style_id_th,
-  .product_status_th,
-  .date_purchased_th,
-  .date_sold_th,
-  .product_price_th,
-  .product_roi_th,
-  .product_condition_th {
+  .table_inventory td {
     font-family: sans-serif;
     color: rgba(0, 0, 0, 0.9);
-    font-weight: 550;
-    font-size: 4.25em;
-  }
-
-  .product_name_td,
-  .product_brand_td,
-  .product_size_td,
-  .product_style_id_td,
-  .product_status_td,
-  .date_purchased_td,
-  .date_sold_td,
-  .product_price,
-  .product_roi,
-  .product_condition_td {
     font-size: 1em;
   }
 
   .product_name_th {
-    width: 25rem;
+    min-width: 30rem;
   }
 
   .product_brand_th {
-    width: 8rem;
+    min-width: 9rem;
   }
 
   .product_size_th {
-    width: 5rem;
+    min-width: 9rem;
   }
 
   .product_style_id_th {
-    width: 8rem;
+    min-width: 12rem;
   }
 
   .product_status_th {
-    width: 5rem;
+    min-width: 9rem;
   }
 
   .date_purchased_th {
-    width: 11rem;
+    min-width: 12rem;
   }
   .date_sold_th {
-    width: 9rem;
+    min-width: 12rem;
   }
   .product_price_th {
-    width: 8rem;
+    min-width: 9rem;
   }
   .product_roi_th {
-    width: 8rem;
+    min-width: 9rem;
   }
 
   .product_condition_th {
-    width: 8rem;
-  }
-
-  .clear_row_all {
-    /* visibility: hidden; */
+    min-width: 9rem;
   }
 
   tr:not(:first-child):hover {
     background-color: #f5f5f5;
-  }
-
-  tr:hover .clear_row_all {
-    /* visibility: visible; */
   }
 
   .options_btn {
@@ -2422,7 +2358,7 @@ td {
     display: flex;
     width: auto;
     padding-bottom: 1rem;
-    padding-left: 1rem;
+    padding-right: 0.5rem;
     /* background-color: #555555; */
   }
 
@@ -2447,10 +2383,10 @@ td {
     border: none;
     color: #ffcc00;
     width: 50%;
-    font-size: 1.25em;
+    font-size: 1.5em;
     text-align: left;
     margin-top: 0.95rem;
-    padding-right: 2.5rem;
+    padding-right: 3rem;
   }
 
   .clear_row_all {
@@ -2458,13 +2394,9 @@ td {
     border: none;
     color: #ff5349;
     width: 50%;
-    font-size: 1.25em;
+    font-size: 1.5em;
     text-align: left;
     margin-top: 0.95rem;
-  }
-
-  .edit_btn:hover,
-  .clear_row_all:hover {
   }
 
   .delete_row {
@@ -2476,7 +2408,7 @@ td {
   }
 
   .empty_table {
-    top: 50%;
+    top: 57.5%;
     left: 50%;
   }
 
@@ -2500,7 +2432,7 @@ td {
 }
 
 @media only screen and (min-width: 1900px) {
-  table {
+  /* table {
     width: 100%;
   }
 
@@ -2521,7 +2453,7 @@ td {
   }
 
   .product_status_th {
-    width: 5rem;
+    width: 0rem;
   }
 
   .date_purchased_th {
@@ -2539,21 +2471,5 @@ td {
 
   .product_condition_th {
     width: 8rem;
-  }
-}
-
-@media only screen and (max-width: 1440px) {
-  .date_purchased_th,
-  .date_sold_th {
-    display: none;
-  }
-
-  .date_purchased_td,
-  .date_sold_td {
-    display: none;
-  }
-
-  .clear_row_all {
-    /* display: none; */
-  }
+  } */
 }

@@ -257,6 +257,8 @@ submitForm.addEventListener("click", function (e) {
   roiCell.classList.add("product_roi");
   conditionCell.classList.add("product_condition_td");
 
+  console.log(productStatus.value);
+
   if (productStatus.value === "sold" || productStatus.value === "Sold") {
     statusCell.classList.add("sold");
   } else {
@@ -802,7 +804,7 @@ function scrollPosition() {
   if (productCount.innerHTML >= 1) {
     document.querySelector(".table_scroll").style.paddingBottom = "0rem";
   } else {
-    document.querySelector(".table_scroll").style.paddingBottom = "37rem";
+    document.querySelector(".table_scroll").style.paddingBottom = "37.5rem";
   }
 }
 
