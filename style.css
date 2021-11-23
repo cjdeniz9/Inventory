@@ -1458,7 +1458,7 @@ td {
 @media only screen and (min-width: 1000px) {
   header {
     display: flex;
-    padding: 20px 4%;
+    padding: 0.75rem 5%;
   }
 
   .logo {
@@ -1468,7 +1468,7 @@ td {
 
   .logo_home,
   .name_home {
-    font-size: 2em;
+    font-size: 1.75em;
     padding-right: 1rem;
     color: black;
   }
@@ -1476,7 +1476,7 @@ td {
   .nav_links {
     position: static;
     display: flex;
-    padding-top: 0.75rem;
+    padding-top: 0.5rem;
     list-style: none;
     transform: translateX(0%);
   }
@@ -1502,7 +1502,7 @@ td {
   .btn_login {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 1em;
+    font-size: 0.9em;
     padding: 0.6rem 1.75rem;
     margin-top: -0.75rem;
     color: white;
@@ -1547,13 +1547,13 @@ td {
   }
 
   .home_heading {
-    font-size: 3.5em;
+    font-size: 2.5em;
     color: #031163;
     text-align: start;
   }
 
   .home_subheading {
-    font-size: 1.9em;
+    font-size: 1.25em;
   }
 
   .features_container {
@@ -1566,7 +1566,7 @@ td {
   }
 
   .features_heading {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #645cff;
   }
 
@@ -1581,7 +1581,7 @@ td {
   .features_list {
     padding-top: 1.25rem;
     padding-left: 1.5rem;
-    font-size: 1.75em;
+    font-size: 1.25em;
     color: #b1adff;
   }
 
