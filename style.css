@@ -2432,44 +2432,4 @@ td {
 }
 
 @media only screen and (min-width: 1900px) {
-  /* table {
-    width: 100%;
-  }
-
-  .product_name_th {
-    width: 90rem;
-  }
-
-  .product_brand_th {
-    width: 7rem;
-  }
-
-  .product_size_th {
-    width: 3rem;
-  }
-
-  .product_style_id_th {
-    width: 7rem;
-  }
-
-  .product_status_th {
-    width: 0rem;
-  }
-
-  .date_purchased_th {
-    width: 10rem;
-  }
-  .date_sold_th {
-    width: 8rem;
-  }
-  .product_price_th {
-    width: 7rem;
-  }
-  .product_roi_th {
-    width: 7rem;
-  }
-
-  .product_condition_th {
-    width: 8rem;
-  } */
 }
