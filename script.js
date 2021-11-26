@@ -804,7 +804,7 @@ function scrollPosition() {
   if (productCount.innerHTML >= 1) {
     document.querySelector(".table_scroll").style.paddingBottom = "0rem";
   } else {
-    document.querySelector(".table_scroll").style.paddingBottom = "37.5rem";
+    document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
   }
 }
 
