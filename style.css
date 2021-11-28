@@ -2919,6 +2919,18 @@ td {
 }
 
 @media only screen and (min-width: 1800px) {
+  .start_container {
+    width: 75%;
+  }
+
+  .dashboard_container {
+    padding-top: 7rem;
+  }
+
+  .inventory_ui {
+    width: 90%;
+  }
+
   .inventory_left {
     width: 13%;
   }
@@ -2943,15 +2955,20 @@ td {
     width: 14%;
   }
 
-  .buttons {
-    margin-right: 3.25rem;
-  }
-
   .search_product {
     width: 27.75%;
   }
 
+  .buttons {
+    margin-right: 3.25rem;
+  }
+
+  .dollar_sign {
+    margin-left: -13.3rem;
+    padding: 0.15rem 0.5rem;
+  }
+
   .table_scroll {
-    padding-bottom: 34.5rem;
+    padding-bottom: 33.5rem;
   }
 }
