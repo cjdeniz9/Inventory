@@ -2525,7 +2525,7 @@ td {
 
   .inventory_info_box {
     width: 70%;
-    margin-left: 1.6rem;
+    margin-left: 1.4rem;
     padding: 0.5rem 0rem;
     justify-content: space-evenly;
     /* background-color: green; */
@@ -2915,5 +2915,39 @@ td {
     color: #8d8681;
     font-size: 1.1em;
     margin-left: -6.55rem;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .inventory_left {
+    width: 13%;
+  }
+
+  .nav_content_bottom {
+    padding-top: 23rem;
+  }
+
+  .inventory_right {
+    width: 87%;
+  }
+
+  .inventory_heading {
+    font-size: 2.25em;
+  }
+
+  .inventory_info_box {
+    margin-left: 1.1rem;
+  }
+
+  .buttons {
+    margin-right: 3.25rem;
+  }
+
+  .search_product {
+    width: 27.75%;
+  }
+
+  .table_scroll {
+    padding-bottom: 34.5rem;
   }
 }
