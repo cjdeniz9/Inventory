@@ -2939,6 +2939,10 @@ td {
     margin-left: 1.1rem;
   }
 
+  .icon_background {
+    width: 14%;
+  }
+
   .buttons {
     margin-right: 3.25rem;
   }
