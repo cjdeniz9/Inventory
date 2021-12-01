@@ -28,10 +28,15 @@ body {
 }
 
 .logo_home,
-.name_home,
 .hamburger_menu {
   font-size: 1.5em;
   color: #031163;
+}
+
+.name_home {
+  font-size: 1.5em;
+  color: black;
+  font-weight: 600;
 }
 
 .logo_home,
@@ -1142,10 +1147,12 @@ td {
   }
 
   .logo_home,
-  .name_home,
   .hamburger_menu {
     font-size: 2em;
-    color: #031163;
+  }
+
+  .name_home {
+    font-size: 2em;
   }
 
   .logo_home,
@@ -1485,10 +1492,10 @@ td {
   .name_home {
     font-size: 1.75em;
     padding-right: 1rem;
-    color: black;
   }
 
   .name_home {
+    padding-left: 0.75rem;
     letter-spacing: 0.1em;
   }
 
@@ -1821,6 +1828,7 @@ td {
   }
 
   .name_login {
+    padding-left: 0.75rem;
     letter-spacing: 0.1rem;
   }
 
