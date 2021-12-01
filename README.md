@@ -2,7 +2,7 @@
 
 Inventory Tracker is built using HTML, CSS, and Javascript to track the inventory’s data by implementing CRUD operations on the dynamically added products within the table while updating the overall total to have a better understanding of the return on investment.
 
-[Live](https://inventory-tracker.pages.dev/home)
+### [Live](https://inventory-tracker.pages.dev/home)
 
 # Screenshots
 
