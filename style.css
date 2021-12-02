@@ -30,13 +30,18 @@ body {
 .logo_home,
 .hamburger_menu {
   font-size: 1.5em;
-  color: #031163;
+  color: black;
+}
+
+.tracker_logo_home {
+  width: 1.75rem;
 }
 
 .name_home {
   font-size: 1.5em;
   color: black;
   font-weight: 600;
+  padding-left: 0.5rem;
 }
 
 .logo_home,
@@ -215,6 +220,10 @@ nav ul li a {
   padding-right: 0.5rem;
   color: #031163;
   font-size: 1.75em;
+}
+
+.tracker_logo_login {
+  width: 2rem;
 }
 
 .login_form {
@@ -1151,6 +1160,10 @@ td {
     font-size: 2em;
   }
 
+  .tracker_logo_home {
+    width: 2.4rem;
+  }
+
   .name_home {
     font-size: 2em;
   }
@@ -1492,6 +1505,10 @@ td {
   .name_home {
     font-size: 1.75em;
     padding-right: 1rem;
+  }
+
+  .tracker_logo_home {
+    width: 2.2rem;
   }
 
   .name_home {
