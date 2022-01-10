@@ -30,11 +30,45 @@ const productPrice = document.querySelector(".product_price");
 const productRoi = document.querySelector(".product_roi");
 const productCondition = document.querySelector(".product_condition");
 
-// const a = document.forms["Form"]["name"].value;
-
 const tableInventory = document.querySelector(".table_inventory");
 
 const roiHeading = document.querySelector(".roi_heading");
+
+contentBox = document.querySelector(".content_box");
+header = document.querySelector(".header");
+
+var myScrollFunc = function () {
+  var y = window.scrollY;
+  if (y >= 90) {
+    contentBox.classList.add("zoom_in");
+    header.classList.add("border");
+  } else {
+    contentBox.classList.remove("zoom_in");
+    header.classList.remove("border");
+  }
+  if (y >= 9) {
+    header.classList.add("border");
+  } else {
+    header.classList.remove("border");
+  }
+};
+
+window.addEventListener("scroll", myScrollFunc);
+
+// const inViewport = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+//   });
+// };
+
+// const Obs = new IntersectionObserver(inViewport);
+// const obsOptions = {}; //See: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Intersection_observer_options
+
+// // Attach observer to every [data-inviewport] element:
+// const ELs_inViewport = document.querySelectorAll("[data-inviewport]");
+// ELs_inViewport.forEach((EL) => {
+//   Obs.observe(EL, obsOptions);
+// });
 
 //Only allows numbers
 var pattern = /[^0-9.-]+/g;
@@ -78,7 +112,7 @@ function checkMenuStatus() {
 
 // const navSlide = () => {
 const menu = document.querySelector(".drop_down_menu");
-const nav = document.querySelector(".nav_links");
+const nav = document.querySelector(".nav_linkss");
 const navBackground = document.querySelector(".menu_background");
 const body = document.querySelector("body");
 
@@ -807,70 +841,3 @@ function scrollPosition() {
     document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
   }
 }
-
-// var selectedRow = null;
-
-// function onFormSubmit() {
-//   event.preventDefault();
-//   var formData = readFormData();
-//   if (selectedRow === null) {
-//     insertData(formData);
-//   } else {
-//     updateRecord(formData);
-//   }
-// }
-
-// function readFormData() {
-//   var formData = {};
-//   formData[".product_name"] = document.querySelector(".product_name").value;
-//   formData[".product_brand"] = document.querySelector(".product_brand").value;
-//   formData[".product_size"] = document.querySelector(".product_size").value;
-//   formData[".product_style_id"] =
-//     document.querySelector(".product_style_id").value;
-//   formData[".product_status"] = document.querySelector(".product_status").value;
-//   formData[".product_date"] = document.querySelector(".product_date").value;
-//   formData[".product_date_sold"] =
-//     document.querySelector(".product_date_sold").value;
-//   formData[".product_price"] = document.querySelector(".product_price").value;
-//   formData[".product_roi"] = document.querySelector(".product_roi").value;
-//   formData[".product_condition"] =
-//     document.querySelector(".product_condition").value;
-//   return formData;
-// }
-
-// function insertNewRecord(data) {
-//   var table = document
-//     .querySelector(".table_inventory")
-//     .getElementsByTagName("tbody")[0];
-//   var newRow = table.insertRow(table.length);
-//   var cell1 = newRow.insertCell(0);
-//   cell1.innerHTML = data.productName;
-//   var cell2 = newRow.insertCell(1);
-//   cell2.innerHTML = data.productBrand;
-//   var cell3 = newRow.insertCell(2);
-//   cell3.innerHTML = data.productSize;
-//   var cell4 = newRow.insertCell(3);
-//   cell4.innerHTML = data.productStyleId;
-//   var cell5 = newRow.insertCell(4);
-//   cell51.innerHTML = data.productStatus;
-//   var cell6 = newRow.insertCell(5);
-//   cell6.innerHTML = data.purchaseDate;
-//   var cell7 = newRow.insertCell(6);
-//   cell7.innerHTML = data.soldCell;
-//   var cell8 = newRow.insertCell(7);
-//   cell8.innerHTML = data.productPrice;
-//   var cell9 = newRow.insertCell(8);
-//   cell9.innerHTML = data.productRoi;
-//   var cell10 = newRow.insertCell(9);
-//   cell10.innerHTML = data.productCondition;
-// }
-
-// function onEdit(td) {
-//   selectedRow = td.parentElement.parentElement;
-//   document.querySelector(".product_name").value =
-//     selectedRow.cells[0].innerHTML;
-// }
-
-// function updateRecord(formData) {
-//   selectedRow.cells[0].innerHTML = formData.productName;
-// }
