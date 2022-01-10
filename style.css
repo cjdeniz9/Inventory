@@ -144,13 +144,11 @@ nav ul li a {
 }
 
 .viewBtn_container {
-  width: 27.5%;
-  min-height: 6vh;
-  /* float: left; */
+  width: 9ch;
+  min-height: 7vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.5rem;
 }
 
 .view_link {
@@ -170,9 +168,9 @@ nav ul li a {
 }
 
 .updateTxt_container {
-  width: 60%;
-  min-height: 6vh;
-  /* float: right; */
+  width: 25ch;
+  min-height: 7vh;
+  padding-left: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -553,6 +551,10 @@ nav ul li a {
 
 .ftr_card_subheader {
   padding-top: 0.75rem;
+}
+
+.footer_card a {
+  text-decoration: none;
 }
 
 .ftr_card_subheading {
@@ -1620,21 +1622,22 @@ td {
   }
 
   .viewBtn_container {
-    width: 13.5%;
-    min-height: 4vh;
+    width: 11ch;
+    min-height: 5vh;
   }
 
   .view_btn {
-    font-size: 0.9em;
+    font-size: 1em;
   }
 
   .updateTxt_container {
-    width: 70%;
-    min-height: 4vh;
+    width: 55ch;
+    min-height: 7vh;
+    padding-left: 0rem;
   }
 
   .update_txt {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .content_container {
@@ -1712,10 +1715,6 @@ td {
 
   .card_heading {
     font-size: 1.5em;
-  }
-
-  .card_spacer {
-    padding-bottom: 0rem;
   }
 
   .card_text {
