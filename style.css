@@ -591,7 +591,7 @@ nav ul li a {
 }
 
 .tracker_logo_login {
-  width: 2rem;
+  width: 2.5rem;
 }
 
 .login_form {
@@ -681,7 +681,7 @@ nav ul li a {
 .return_login {
   font-size: 1.1em;
   text-decoration: none;
-  color: #6c63ff;
+  color: #003eff;
   float: left;
 }
 
@@ -2497,7 +2497,7 @@ td {
   .login_left {
     display: block;
     left: 0;
-    background-color: #ebeefe;
+    background-color: #ebf3ff;
   }
 
   .login_right {
@@ -2537,7 +2537,7 @@ td {
   }
 
   .login_subheading {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 1.1em;
     color: #020a3c;
@@ -2572,7 +2572,7 @@ td {
   }
 
   .forgot_pw:hover {
-    color: #6c63ff;
+    color: #0033cc;
   }
 
   .login_submit {
@@ -2580,15 +2580,15 @@ td {
     font-size: 1.1em;
     padding: 0.75rem 0rem;
     color: white;
-    background-color: #6c63ff;
+    background-color: #003eff;
     border: none;
-    border-radius: 6px;
+    border-radius: 3px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
   }
 
   .login_submit:hover {
-    background-color: #9e99ff;
+    background-color: #0033cc;
   }
 
   .create_container {
@@ -2602,11 +2602,11 @@ td {
   }
 
   .create_acc {
-    color: #6c63ff;
+    color: #003eff;
   }
 
   .create_acc:hover {
-    color: #9e99ff;
+    color: #0033cc;
   }
 
   .send_btn {
@@ -2619,7 +2619,7 @@ td {
   }
 
   .return_login:hover {
-    color: #9e99ff;
+    color: #0033cc;
   }
 
   .logo_home_link {
@@ -2850,7 +2850,7 @@ td {
   }
 
   .selected {
-    color: #645cff;
+    color: #003eff;
   }
 
   .nav_content_bottom {
@@ -2888,11 +2888,16 @@ td {
     width: 80%;
     margin-left: 1.15rem;
     padding: 0.5rem 0rem;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-between;
   }
 
   .stat_box {
     width: 31.5%;
+  }
+
+  .profit_box {
+    margin-top: 0rem;
   }
 
   .icon_background {
@@ -3097,7 +3102,7 @@ td {
     width: 90%;
     overflow-y: hidden;
     margin-left: 1.5rem;
-    padding-bottom: 31.5rem;
+    padding-bottom: 30rem;
   }
 
   *::-webkit-scrollbar {
@@ -3697,7 +3702,7 @@ td {
     width: 95%;
     overflow-y: hidden;
     margin-left: 1.95rem;
-    padding-bottom: 30rem;
+    padding-bottom: 0rem;
   }
 
   *::-webkit-scrollbar {
