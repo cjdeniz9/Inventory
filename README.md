@@ -6,7 +6,9 @@ Inventory Tracker is built using HTML, CSS, and Javascript to track the inventor
 
 # Screenshots
 
-![Home](https://user-images.githubusercontent.com/78882801/142971860-c55ed36b-def7-4f92-965e-bc6e1f84b83a.PNG)
+
+
+https://user-images.githubusercontent.com/78882801/149287374-b1e468f3-a0cb-42f3-bb42-32f5ccf60e5d.mp4
 ![Login](https://user-images.githubusercontent.com/78882801/142971880-bc23e07b-a57f-48a6-a9c0-41ea1c366aa4.PNG)
 ![ForgotPassword](https://user-images.githubusercontent.com/78882801/142971886-6d277d92-62a5-46a6-b425-9ed273c5cb12.PNG)
 ![SignUp](https://user-images.githubusercontent.com/78882801/142971889-4f9cd8b6-266f-4e4b-be18-c102d394f5f3.PNG)
@@ -21,3 +23,4 @@ Inventory Tracker is built using HTML, CSS, and Javascript to track the inventor
     - CRUD on products
     - Dynamic input to Table and Overall Table Statistic Container
     - Search for specified products(Checks related matches under td[0])
+    - Create Account Validation
