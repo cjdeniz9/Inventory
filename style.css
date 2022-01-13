@@ -707,7 +707,6 @@ nav ul li a {
 
 .create_container {
   width: 100%;
-  text-align: center;
   padding-top: 2rem;
 }
 
@@ -722,6 +721,37 @@ nav ul li a {
 
 .create_acc:hover {
   color: #0033cc;
+}
+
+.signup_invalid_message {
+  display: none;
+  padding-top: 1.25rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: rgb(255, 86, 48);
+  margin-bottom: -0.75rem;
+}
+
+.fields_blank,
+.email_blank,
+.email_invalid_password_blank,
+.email_blank_password_blank_confirm_password_invalid_match,
+.email_invalid,
+.email_invalid_invalid_password_requirements,
+.email_invalid_confirm_password_invalid_match,
+.email_invalid_invalid_password_requirements_confirm_password_invalid_match,
+.email_invalid_invalid_password_requirements_confirm_password_blank,
+.email_invalid_password_blank_confirm_password_invalid_match,
+.password_blank,
+.invalid_password_requirements_confirm_password_blank,
+.invalid_password_requirements,
+.confirm_password_invalid_match {
+  display: none;
+}
+
+.visible {
+  display: block;
 }
 
 .inventory_left {
@@ -1626,6 +1656,10 @@ td {
     cursor: pointer;
     overflow: hidden;
     outline: none;
+  }
+
+  .signup_invalid_message {
+    font-size: 1.15em;
   }
 
   .update_container {

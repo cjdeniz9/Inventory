@@ -54,15 +54,31 @@
           </div>
           <div class="login_form_content">
             <p class="login_subheading">Email</p>
-            <input class="login_input" type="text" />
+            <input class="login_input email_input" type="text" />
             <p class="login_subheading">Password</p>
-            <input class="login_input" type="password" />
+            <input class="login_input password_input" type="password" />
             <p class="login_subheading">Comfirm Password</p>
-            <input class="login_input" type="password" />
+            <input class="login_input confirm_password_input" type="password" />
             <div class="sign_up_container">
-              <a href="login.html"
-                ><button class="login_submit" type="submit">Sign Up</button></a
-              >
+              <!-- <a href="login.html"> -->
+                <button class="login_submit signup_btn" type="submit">Sign Up</button>
+              <!-- </a> -->
+            </div>
+            <div class="signup_invalid_message">
+              <span class="fields_blank">Email can't be blank. Password can't be blank.</span>
+              <span class="email_blank">Email can't be blank.</span>
+              <span class="email_invalid_password_blank">Email is invalid. Password can't be blank.</span>
+              <span class="email_blank_password_blank_confirm_password_invalid_match">Email can't be blank. Password can't be blank. Password confirmation doesn't match Password.</span>
+              <span class="email_invalid">Email is invalid.</span>
+              <span class="email_invalid_invalid_password_requirements">Email is invalid. Password is too short (minimum is 6 characters).</span>
+              <span class="email_invalid_confirm_password_invalid_match">Email is invalid. Password confirmation doesn't match Password.</span>
+              <span class="email_invalid_invalid_password_requirements_confirm_password_invalid_match">Email is invalid. Password confirmation doesn't match Password. Password is too short (minimum is 6 characters).</span>
+              <span class="email_invalid_invalid_password_requirements_confirm_password_blank">Email is invalid. Password confirmation doesn't match Password. Password is too short (minimum is 6 characters).</span>
+              <span class="email_invalid_password_blank_confirm_password_invalid_match">Email is invalid. Password can't be blank. Password confirmation doesn't match Password.</span>
+              <span class="password_blank">Password can't be blank.</span>
+              <span class="invalid_password_requirements_confirm_password_blank">Password confirmation doesn't match Password. Password is too short (minimum is 6 characters)</span>
+              <span class="invalid_password_requirements">Password is too short (minimum is 6 characters)</span>
+              <span class="confirm_password_invalid_match">Password confirmation doesn't match Password.</span>
             </div>
             <div class="create_container">
               <span class="login_text">

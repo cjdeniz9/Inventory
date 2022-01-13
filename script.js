@@ -1,5 +1,11 @@
 const dropDownMenu = document.querySelector(".menu_btn");
 
+const email = document.querySelector(".email_input");
+const password = document.querySelector(".password_input");
+const confirmPassword = document.querySelector(".confirm_password_input");
+
+const signupBtn = document.querySelector(".signup_btn");
+
 const navBar = document.querySelector(".inventory_left");
 
 const productCount = document.querySelector(".product_count");
@@ -37,23 +43,232 @@ const roiHeading = document.querySelector(".roi_heading");
 contentBox = document.querySelector(".content_box");
 header = document.querySelector(".header");
 
-var myScrollFunc = function () {
-  var y = window.scrollY;
-  if (y >= 90) {
-    contentBox.classList.add("zoom_in");
-    header.classList.add("border");
-  } else {
-    contentBox.classList.remove("zoom_in");
-    header.classList.remove("border");
-  }
-  if (y >= 9) {
-    header.classList.add("border");
-  } else {
-    header.classList.remove("border");
-  }
-};
+const homePageContent = document.querySelector(".home_page_content");
 
-window.addEventListener("scroll", myScrollFunc);
+if (homePageContent) {
+  function myScrollFunc() {
+    var y = window.scrollY;
+    if (y >= 90) {
+      contentBox.classList.add("zoom_in");
+      header.classList.add("border");
+    } else {
+      contentBox.classList.remove("zoom_in");
+      header.classList.remove("border");
+    }
+    if (y >= 9) {
+      header.classList.add("border");
+    } else {
+      header.classList.remove("border");
+    }
+  }
+
+  window.addEventListener("scroll", myScrollFunc);
+}
+
+if (signupBtn) {
+  signupBtn.addEventListener("click", function () {
+    const signupInvalidMessage = document.querySelector(
+      ".signup_invalid_message"
+    );
+    const fieldsBlank = document.querySelector(".fields_blank");
+    const emailBlank = document.querySelector(".email_blank");
+    const emailInvalidPasswordBlank = document.querySelector(
+      ".email_invalid_password_blank"
+    );
+    const emailBlankPasswordBlankConfirmPasswordInvalidMatch =
+      document.querySelector(
+        ".email_blank_password_blank_confirm_password_invalid_match"
+      );
+    const emailInvalid = document.querySelector(".email_invalid");
+    const emailInvalidInvalidPasswordRequirements = document.querySelector(
+      ".email_invalid_invalid_password_requirements"
+    );
+    const emailInvalidConfirmPasswordInvalidMatch = document.querySelector(
+      ".email_invalid_confirm_password_invalid_match"
+    );
+    const emailInvalidInvalidPasswordRequirementsConfirmPasswordInvalidMatch =
+      document.querySelector(
+        ".email_invalid_invalid_password_requirements_confirm_password_invalid_match"
+      );
+    const emailInvalidInvalidPasswordRequirementsConfirmPasswordBlank =
+      document.querySelector(
+        ".email_invalid_invalid_password_requirements_confirm_password_blank"
+      );
+    const emailInvalidPasswordBlankConfirmPasswordInvalidMatch =
+      document.querySelector(
+        ".email_invalid_password_blank_confirm_password_invalid_match"
+      );
+    const passwordBlank = document.querySelector(".password_blank");
+    const invalidPasswordRequirementsConfirmPasswordBlank =
+      document.querySelector(
+        ".invalid_password_requirements_confirm_password_blank"
+      );
+    const invalidPasswordRequirements = document.querySelector(
+      ".invalid_password_requirements"
+    );
+    const confirmPasswordInvalidMatch = document.querySelector(
+      ".confirm_password_invalid_match"
+    );
+
+    const validateEmail =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    // test.classList.remove(".visible");
+    signupInvalidMessage.classList.remove("visible");
+    fieldsBlank.classList.remove("visible");
+    emailBlank.classList.remove("visible");
+    emailInvalidPasswordBlank.classList.remove("visible");
+    emailBlankPasswordBlankConfirmPasswordInvalidMatch.classList.remove(
+      "visible"
+    );
+    emailInvalid.classList.remove("visible");
+    emailInvalidInvalidPasswordRequirements.classList.remove("visible");
+    emailInvalidConfirmPasswordInvalidMatch.classList.remove("visible");
+    emailInvalidInvalidPasswordRequirementsConfirmPasswordInvalidMatch.classList.remove(
+      "visible"
+    );
+    emailInvalidInvalidPasswordRequirementsConfirmPasswordBlank.classList.remove(
+      "visible"
+    );
+    emailInvalidPasswordBlankConfirmPasswordInvalidMatch.classList.remove(
+      "visible"
+    );
+    passwordBlank.classList.remove("visible");
+    invalidPasswordRequirementsConfirmPasswordBlank.classList.remove("visible");
+    invalidPasswordRequirements.classList.remove("visible");
+    confirmPasswordInvalidMatch.classList.remove("visible");
+
+    if (
+      email.value === "" &&
+      password.value === "" &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      fieldsBlank.classList.add("visible");
+    } else if (
+      email.value === "" &&
+      password.value != "" &&
+      confirmPassword.value != ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailBlank.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value === "" &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidPasswordBlank.classList.add("visible");
+    } else if (
+      email.value === "" &&
+      password.value === "" &&
+      confirmPassword.value != ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailBlankPasswordBlankConfirmPasswordInvalidMatch.classList.add(
+        "visible"
+      );
+    } else if (
+      email.value != "" &&
+      password.value != "" &&
+      confirmPassword.value != "" &&
+      !email.value.match(validateEmail)
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalid.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value != "" &&
+      password.value.length <= 5 &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidInvalidPasswordRequirements.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value != "" &&
+      password.value.length >= 6 &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidConfirmPasswordInvalidMatch.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value != "" &&
+      password.value.length <= 5 &&
+      confirmPassword.value != ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidInvalidPasswordRequirementsConfirmPasswordInvalidMatch.classList.add(
+        "visible"
+      );
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value != "" &&
+      password.value.length <= 5 &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidInvalidPasswordRequirementsConfirmPasswordBlank.classList.add(
+        "visible"
+      );
+    } else if (
+      email.value != "" &&
+      !email.value.match(validateEmail) &&
+      password.value === "" &&
+      confirmPassword.value != "" &&
+      password.value != confirmPassword.value
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      emailInvalidPasswordBlankConfirmPasswordInvalidMatch.classList.add(
+        "visible"
+      );
+    } else if (
+      email.value != "" &&
+      email.value.match(validateEmail) &&
+      password.value === "" &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      passwordBlank.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      email.value.match(validateEmail) &&
+      password.value != "" &&
+      password.value.length <= 5 &&
+      confirmPassword.value === ""
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      invalidPasswordRequirementsConfirmPasswordBlank.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      email.value.match(validateEmail) &&
+      password.value == "" &&
+      password.value.length < 6 &&
+      confirmPassword.value != ""
+      // password.value == confirmPassword.value
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      invalidPasswordRequirements.classList.add("visible");
+    } else if (
+      email.value != "" &&
+      email.value.match(validateEmail) &&
+      password.value != "" &&
+      // confirmPassword.value != "" &&
+      password.value !== confirmPassword.value
+    ) {
+      signupInvalidMessage.classList.add("visible");
+      confirmPasswordInvalidMatch.classList.add("visible");
+    } else {
+      window.location.href = "login.html";
+    }
+  });
+}
 
 // const inViewport = (entries, observer) => {
 //   entries.forEach((entry) => {
@@ -181,650 +396,657 @@ if (userMenu) {
 // }
 
 // When clicked input form is visible
-openForm.addEventListener("click", () => {
-  productName.value = "";
-  productBrand.value = "";
-  productSize.value = "";
-  productStyleId.value = "";
-  productStatus.value = "";
-  purchaseDate.value = "";
-  soldDate.value = "";
-  productPrice.value = "";
-  productRoi.value = "";
-  productCondition.value = "";
-  document.querySelector(".form_popup").style.display = "block";
-  document.querySelector(".form_popup_background").style.display = "block";
-});
+if (openForm) {
+  openForm.addEventListener("click", () => {
+    productName.value = "";
+    productBrand.value = "";
+    productSize.value = "";
+    productStyleId.value = "";
+    productStatus.value = "";
+    purchaseDate.value = "";
+    soldDate.value = "";
+    productPrice.value = "";
+    productRoi.value = "";
+    productCondition.value = "";
+    document.querySelector(".form_popup").style.display = "block";
+    document.querySelector(".form_popup_background").style.display = "block";
+  });
+}
+
 // When clicked input form is not visible
-closeForm.addEventListener("click", () => {
-  document.querySelector(".form_popup").style.display = "none";
-  document.querySelector(".form_popup_background").style.display = "none";
-  document.querySelector(".product_name").style.borderColor = "#d3d3d3";
-  document.querySelector(".product_date").style.borderColor = "#d3d3d3";
-  document.querySelector(".product_price").style.borderColor = "#d3d3d3";
-  document.querySelector(".r_name").style.opacity = "0";
-  document.querySelector(".r_date").style.opacity = "0";
-  document.querySelector(".r_price").style.opacity = "0";
-});
+if (closeForm) {
+  closeForm.addEventListener("click", () => {
+    document.querySelector(".form_popup").style.display = "none";
+    document.querySelector(".form_popup_background").style.display = "none";
+    document.querySelector(".product_name").style.borderColor = "#d3d3d3";
+    document.querySelector(".product_date").style.borderColor = "#d3d3d3";
+    document.querySelector(".product_price").style.borderColor = "#d3d3d3";
+    document.querySelector(".r_name").style.opacity = "0";
+    document.querySelector(".r_date").style.opacity = "0";
+    document.querySelector(".r_price").style.opacity = "0";
+  });
+}
 
 // Event Listener for Form
-submitForm.addEventListener("click", function (e) {
-  //Not needed
-  // e.preventDefault();
+if (submitForm) {
+  submitForm.addEventListener("click", function (e) {
+    //Not needed
+    // e.preventDefault();
 
-  // Input fields required
-  if (
-    productName.value === "" ||
-    purchaseDate.value === "" ||
-    productPrice.value === ""
-  ) {
-    document.querySelector(".product_name").style.borderColor = "red";
-    document.querySelector(".product_date").style.borderColor = "red";
-    document.querySelector(".product_price").style.borderColor = "red";
-    document.querySelector(".r_name").style.opacity = "1";
-    document.querySelector(".r_date").style.opacity = "1";
-    document.querySelector(".r_price").style.opacity = "1";
-    return false;
-  }
-
-  // Creates a in row when button is click
-  var newRow = tableInventory.insertRow(1);
-
-  // Fills in each cell for new row
-  var nameCell = newRow.insertCell(0);
-  var brandCell = newRow.insertCell(1);
-  var sizeCell = newRow.insertCell(2);
-  var styleidCell = newRow.insertCell(3);
-  var statusCell = newRow.insertCell(4);
-  var purchasedCell = newRow.insertCell(5);
-  var soldCell = newRow.insertCell(6);
-  var priceCell = newRow.insertCell(7);
-  var roiCell = newRow.insertCell(8);
-  var conditionCell = newRow.insertCell(9);
-
-  // Formats date
-  var inputPurchaseDate = new Date(purchaseDate.value);
-  var formattedPurchaseDate =
-    inputPurchaseDate.getMonth() +
-    1 +
-    "/" +
-    (inputPurchaseDate.getDate() + 1) +
-    "/" +
-    inputPurchaseDate.getFullYear();
-
-  var inputSoldDate = new Date(soldDate.value);
-  var month = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"][
-    inputSoldDate.getMonth()
-  ];
-  var formattedSoldDate =
-    month +
-    "/" +
-    (inputSoldDate.getDate() + 1) +
-    "/" +
-    inputSoldDate.getFullYear();
-
-  //Gets input value and places as cell innerHTML
-  nameCell.innerHTML = productName.value;
-  brandCell.innerHTML = productBrand.value;
-  sizeCell.innerHTML = productSize.value;
-  styleidCell.innerHTML = productStyleId.value;
-  statusCell.innerHTML = productStatus.value;
-  purchasedCell.innerHTML = formattedPurchaseDate;
-  soldCell.innerHTML = formattedSoldDate;
-  priceCell.innerHTML = `${formatter.format(productPrice.value)}`;
-  roiCell.innerHTML = `${formatter.format(productRoi.value)}`;
-  conditionCell.innerHTML = productCondition.value;
-
-  if (soldDate.value == "") {
-    soldCell.innerHTML = "";
-  }
-
-  //Give cell a class name
-  nameCell.classList.add("product_name_td");
-  brandCell.classList.add("product_brand_td");
-  sizeCell.classList.add("product_size_td");
-  styleidCell.classList.add("product_style_id_td");
-  statusCell.classList.add("product_status_td");
-  purchasedCell.classList.add("date_purchased_td");
-  soldCell.classList.add("date_sold_td");
-  priceCell.classList.add("product_price");
-  roiCell.classList.add("product_roi");
-  conditionCell.classList.add("product_condition_td");
-
-  console.log(productStatus.value);
-
-  if (productStatus.value === "sold" || productStatus.value === "Sold") {
-    statusCell.classList.add("sold");
-  } else {
-    statusCell.classList.add("pending");
-  }
-
-  //Adds class name to roiCell depending on its value to change text color
-  if (productRoi.value >= 1) {
-    roiCell.classList.add("profit");
-  } else if (productRoi.value == 0) {
-    roiCell.classList.add("neutral");
-  } else {
-    roiCell.classList.add("lost");
-  }
-
-  //Created a var to get all td under Price and ROI column
-  var priceTd = document.querySelectorAll(".product_price");
-  var roiTd = document.querySelectorAll(".product_roi");
-
-  //Created var to each the sum total of each column a base number of 0
-  var sumPrice = 0;
-  var sumRoi = 0;
-
-  //Goes through each price td to get the sum of total price
-  for (var i = 1; i < priceTd.length; i++) {
-    sumPrice += parseFloat(priceTd[i].innerHTML.replace(pattern, ""));
-  }
-
-  //Sets the totalSpending innerHTML to the sumPrice of table
-  //Using formatter to convert value in currency(USD)
-  totalSpendings.innerHTML = `${formatter.format(sumPrice)}`;
-
-  //Goes through each roi td to get the sum of roi price
-  for (var i = 1; i < roiTd.length; i++) {
-    sumRoi += parseFloat(roiTd[i].innerHTML.replace(pattern, ""));
-  }
-
-  //Sets the roi innerHTML to the sumRoi of table
-  //Using formatter to convert value in currency(USD)
-  roi.innerHTML = `${formatter.format(sumRoi)}`;
-
-  //Adds class name to roi depending on its value to change text color
-  if (roi.innerHTML.replace(pattern, "") > "1") {
-    roi.classList.remove("neutral");
-    roi.classList.remove("lost");
-    roi.classList.add("profit");
-  } else if (roi.innerHTML.replace(pattern, "") < "0") {
-    roi.classList.remove("neutral");
-    roi.classList.add("lost");
-  } else {
-    roi.classList.add("neutral");
-  }
-
-  // Not need as of now
-  // var roiPercent = (parseFloat(sumRoi / sumPrice) * 100).toFixed(2);
-
-  // const roiPercentage = document.createElement("h6");
-  // roiPercentage.classList.add("percent");
-  // roiPercentage.innerText = `${roiPercent}%`;
-
-  // roi.appendChild(roiPercentage);
-
-  // if (roiPercentage.innerHTML >= "1%") {
-  //   roiPercentage.classList.add("profit");
-  // } else if (roiPercentage.innerHTML < "0%") {
-  //   roiPercentage.classList.add("lost");
-  // } else {
-  //   roiPercentage.classList.add("neutral");
-  // }
-
-  // roi.append(roiPercentage);
-
-  // Not needed as of now
-  // if (soldDate.value != "") {
-  //   newRow.classList.add("product_sold");
-  // }
-
-  // Obtains table length - 1(To exclude table heading) to set product count
-  productCount.innerHTML = tableInventory.rows.length - 1;
-
-  // Clears input field on form
-  productBrand.value = "";
-  productStyleId.value = "";
-  productStatus.value = "";
-  purchaseDate.value = "";
-  soldDate.value = "";
-  productName.value = "";
-  productPrice.value = "";
-  productSize.value = "";
-  productRoi.value = "";
-  productCondition.value = "";
-
-  // When form is clicked, form display is changed to none
-  document.querySelector(".form_popup").style.display = "none";
-
-  // Create delete row button for each row
-  const clearRow = document.createElement("button");
-  clearRow.classList.add("clear_row");
-  clearRow.innerHTML = "-";
-
-  // Deletes selected row from table
-  clearRow.addEventListener("click", function (e) {
-    if (!e.target.classList.contains("clear_row")) {
-      return;
+    // Input fields required
+    if (
+      productName.value === "" ||
+      purchaseDate.value === "" ||
+      productPrice.value === ""
+    ) {
+      document.querySelector(".product_name").style.borderColor = "red";
+      document.querySelector(".product_date").style.borderColor = "red";
+      document.querySelector(".product_price").style.borderColor = "red";
+      document.querySelector(".r_name").style.opacity = "1";
+      document.querySelector(".r_date").style.opacity = "1";
+      document.querySelector(".r_price").style.opacity = "1";
+      return false;
     }
-    const btn = e.target;
-    btn.closest("tr").remove();
-    productCount.innerHTML = tableInventory.rows.length - 1;
-    totalSpendings.innerHTML = formatter.format(
-      totalSpendings.innerHTML.replace(pattern, "") -
-        priceCell.innerHTML.replace(pattern, "")
-    );
-    roi.innerHTML = formatter.format(
-      roi.innerHTML.replace(pattern, "") -
-        roiCell.innerHTML.replace(pattern, "")
-    );
-    if (roi.innerHTML.replace(pattern, "") > "0.00") {
+
+    // Creates a in row when button is click
+    var newRow = tableInventory.insertRow(1);
+
+    // Fills in each cell for new row
+    var nameCell = newRow.insertCell(0);
+    var brandCell = newRow.insertCell(1);
+    var sizeCell = newRow.insertCell(2);
+    var styleidCell = newRow.insertCell(3);
+    var statusCell = newRow.insertCell(4);
+    var purchasedCell = newRow.insertCell(5);
+    var soldCell = newRow.insertCell(6);
+    var priceCell = newRow.insertCell(7);
+    var roiCell = newRow.insertCell(8);
+    var conditionCell = newRow.insertCell(9);
+
+    // Formats date
+    var inputPurchaseDate = new Date(purchaseDate.value);
+    var formattedPurchaseDate =
+      inputPurchaseDate.getMonth() +
+      1 +
+      "/" +
+      (inputPurchaseDate.getDate() + 1) +
+      "/" +
+      inputPurchaseDate.getFullYear();
+
+    var inputSoldDate = new Date(soldDate.value);
+    var month = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"][
+      inputSoldDate.getMonth()
+    ];
+    var formattedSoldDate =
+      month +
+      "/" +
+      (inputSoldDate.getDate() + 1) +
+      "/" +
+      inputSoldDate.getFullYear();
+
+    //Gets input value and places as cell innerHTML
+    nameCell.innerHTML = productName.value;
+    brandCell.innerHTML = productBrand.value;
+    sizeCell.innerHTML = productSize.value;
+    styleidCell.innerHTML = productStyleId.value;
+    statusCell.innerHTML = productStatus.value;
+    purchasedCell.innerHTML = formattedPurchaseDate;
+    soldCell.innerHTML = formattedSoldDate;
+    priceCell.innerHTML = `${formatter.format(productPrice.value)}`;
+    roiCell.innerHTML = `${formatter.format(productRoi.value)}`;
+    conditionCell.innerHTML = productCondition.value;
+
+    if (soldDate.value == "") {
+      soldCell.innerHTML = "";
+    }
+
+    //Give cell a class name
+    nameCell.classList.add("product_name_td");
+    brandCell.classList.add("product_brand_td");
+    sizeCell.classList.add("product_size_td");
+    styleidCell.classList.add("product_style_id_td");
+    statusCell.classList.add("product_status_td");
+    purchasedCell.classList.add("date_purchased_td");
+    soldCell.classList.add("date_sold_td");
+    priceCell.classList.add("product_price");
+    roiCell.classList.add("product_roi");
+    conditionCell.classList.add("product_condition_td");
+
+    console.log(productStatus.value);
+
+    if (productStatus.value === "sold" || productStatus.value === "Sold") {
+      statusCell.classList.add("sold");
+    } else {
+      statusCell.classList.add("pending");
+    }
+
+    //Adds class name to roiCell depending on its value to change text color
+    if (productRoi.value >= 1) {
+      roiCell.classList.add("profit");
+    } else if (productRoi.value == 0) {
+      roiCell.classList.add("neutral");
+    } else {
+      roiCell.classList.add("lost");
+    }
+
+    //Created a var to get all td under Price and ROI column
+    var priceTd = document.querySelectorAll(".product_price");
+    var roiTd = document.querySelectorAll(".product_roi");
+
+    //Created var to each the sum total of each column a base number of 0
+    var sumPrice = 0;
+    var sumRoi = 0;
+
+    //Goes through each price td to get the sum of total price
+    for (var i = 1; i < priceTd.length; i++) {
+      sumPrice += parseFloat(priceTd[i].innerHTML.replace(pattern, ""));
+    }
+
+    //Sets the totalSpending innerHTML to the sumPrice of table
+    //Using formatter to convert value in currency(USD)
+    totalSpendings.innerHTML = `${formatter.format(sumPrice)}`;
+
+    //Goes through each roi td to get the sum of roi price
+    for (var i = 1; i < roiTd.length; i++) {
+      sumRoi += parseFloat(roiTd[i].innerHTML.replace(pattern, ""));
+    }
+
+    //Sets the roi innerHTML to the sumRoi of table
+    //Using formatter to convert value in currency(USD)
+    roi.innerHTML = `${formatter.format(sumRoi)}`;
+
+    //Adds class name to roi depending on its value to change text color
+    if (roi.innerHTML.replace(pattern, "") > "1") {
+      roi.classList.remove("neutral");
       roi.classList.remove("lost");
       roi.classList.add("profit");
     } else if (roi.innerHTML.replace(pattern, "") < "0") {
-      roi.classList.remove("profit");
+      roi.classList.remove("neutral");
       roi.classList.add("lost");
     } else {
-      roi.classList.remove("profit");
-      roi.classList.remove("lost");
       roi.classList.add("neutral");
     }
-  });
 
-  // const btnOptions = document.createElement("button");
-  // btnOptions.classList.add("options_btn");
-  // btnOptions.setAttribute("onclick", "displayToggle()");
-  // btnOptions.innerHTML = "...";
+    // Not need as of now
+    // var roiPercent = (parseFloat(sumRoi / sumPrice) * 100).toFixed(2);
 
-  const optionContainer = document.createElement("div");
-  optionContainer.classList.add("option_container");
-  // optionContainer.classList.add("hidden");
+    // const roiPercentage = document.createElement("h6");
+    // roiPercentage.classList.add("percent");
+    // roiPercentage.innerText = `${roiPercent}%`;
 
-  const btnEdit = document.createElement("button");
-  btnEdit.classList.add("edit_btn");
-  btnEdit.innerHTML = `<i class="fas fa-pen"></i>`;
+    // roi.appendChild(roiPercentage);
 
-  // Create delete row button for each row
-  const clearRowAll = document.createElement("button");
-  clearRowAll.classList.add("clear_row_all");
-  clearRowAll.classList.add("fas");
-  clearRowAll.classList.add("fa-trash");
+    // if (roiPercentage.innerHTML >= "1%") {
+    //   roiPercentage.classList.add("profit");
+    // } else if (roiPercentage.innerHTML < "0%") {
+    //   roiPercentage.classList.add("lost");
+    // } else {
+    //   roiPercentage.classList.add("neutral");
+    // }
 
-  newRow.append(optionContainer);
+    // roi.append(roiPercentage);
 
-  optionContainer.appendChild(btnEdit);
-  optionContainer.appendChild(clearRowAll);
+    // Not needed as of now
+    // if (soldDate.value != "") {
+    //   newRow.classList.add("product_sold");
+    // }
 
-  // btnOptions.addEventListener("click", function () {
-  //   if (document.querySelector(".option_container").style.opacity === "0") {
-  //     document.querySelector(".option_container").style.opacity = "1";
-  //   } else {
-  //     document.querySelector(".option_container").style.opacity = "0";
-  //   }
-  // });
-
-  // btnOptions.addEventListener("click", function () {
-  // Deletes selected row from table
-
-  clearRowAll.addEventListener("click", function (e) {
-    if (!e.target.classList.contains("clear_row_all")) {
-      return;
-    }
-    const btn = e.target;
-    btn.closest("tr").remove();
+    // Obtains table length - 1(To exclude table heading) to set product count
     productCount.innerHTML = tableInventory.rows.length - 1;
-    totalSpendings.innerHTML = formatter.format(
-      totalSpendings.innerHTML.replace(pattern, "") -
-        priceCell.innerHTML.replace(pattern, "")
-    );
-    roi.innerHTML = formatter.format(
-      roi.innerHTML.replace(pattern, "") -
-        roiCell.innerHTML.replace(pattern, "")
-    );
 
-    if (roi.innerHTML.replace(pattern, "") > "0.00") {
-      roi.classList.remove("lost");
-      roi.classList.add("profit");
-    } else if (roi.innerHTML.replace(pattern, "") < "0.00") {
-      roi.classList.remove("profit");
-      roi.classList.add("lost");
-    } else {
-      roi.classList.remove("profit");
-      roi.classList.remove("lost");
-      roi.classList.add("neutral");
-    }
+    // Clears input field on form
+    productBrand.value = "";
+    productStyleId.value = "";
+    productStatus.value = "";
+    purchaseDate.value = "";
+    soldDate.value = "";
+    productName.value = "";
+    productPrice.value = "";
+    productSize.value = "";
+    productRoi.value = "";
+    productCondition.value = "";
 
-    noData();
-    scrollPosition();
-  });
+    // When form is clicked, form display is changed to none
+    document.querySelector(".form_popup").style.display = "none";
 
-  btnEdit.addEventListener("click", function () {
-    var table = document.querySelector(".table_inventory");
+    // Create delete row button for each row
+    const clearRow = document.createElement("button");
+    clearRow.classList.add("clear_row");
+    clearRow.innerHTML = "-";
 
-    for (var i = 1; i < table.rows.length; i++) {
-      table.rows[i].onclick = function () {
-        rIndex = this.rowIndex;
-        productName.value = this.cells[0].innerHTML;
-        productBrand.value = this.cells[1].innerHTML;
-        productSize.value = this.cells[2].innerHTML;
-        productStyleId.value = this.cells[3].innerHTML;
-        productStatus.value = this.cells[4].innerHTML;
-        var pDateValue = new Date(this.cells[5].innerHTML);
-        var formattingPDate =
-          pDateValue.getFullYear() +
-          "-" +
-          ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
-          "-" +
-          ("0" + pDateValue.getDate()).slice(-2);
-        purchaseDate.value = formattingPDate;
-        var sDateValue = new Date(this.cells[6].innerHTML);
-        var formattingSDate =
-          sDateValue.getFullYear() +
-          "-" +
-          ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
-          "-" +
-          ("0" + sDateValue.getDate()).slice(-2);
-        soldDate.value = formattingSDate;
-        productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
-        productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
-        productCondition.value = this.cells[9].innerHTML;
-      };
-    }
-
-    btnCancel.addEventListener("click", function () {
-      productName.value = "";
-      productBrand.value = "";
-      productSize.value = "";
-      productStyleId.value = "";
-      productStatus.value = "";
-      purchaseDate.value = "";
-      soldDate.value = "";
-      productPrice.value = "";
-      productRoi.value = "";
-      productCondition.value = "";
-
-      document.querySelector(".form_popup").style.display = "none";
-      document.querySelector(".form_popup_background").style.display = "none";
-      document.querySelector(".form_heading").style.display = "block";
-      document.querySelector(".edit_heading").style.display = "none";
-      document.querySelector(".form_buttons").style.display = "flex";
-      document.querySelector(".edit_btns").style.display = "none";
-    });
-
-    editRow.addEventListener("click", function () {
-      table.rows[rIndex].cells[0].innerHTML = productName.value;
-      table.rows[rIndex].cells[1].innerHTML = productBrand.value;
-      table.rows[rIndex].cells[2].innerHTML = productSize.value;
-      table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
-      table.rows[rIndex].cells[4].innerHTML = productStatus.value;
-      table.rows[rIndex].cells[5].innerHTML = formattedPurchaseDate;
-      table.rows[rIndex].cells[6].innerHTML = formattedSoldDate;
-      table.rows[rIndex].cells[7].innerHTML = `${formatter.format(
-        productPrice.value
-      )}`;
-      table.rows[rIndex].cells[8].innerHTML = `${formatter.format(
-        productRoi.value
-      )}`;
-      table.rows[rIndex].cells[9].innerHTML = productCondition.value;
-
-      if (soldDate.value == "") {
-        soldCell.innerHTML = "";
+    // Deletes selected row from table
+    clearRow.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("clear_row")) {
+        return;
       }
-
-      if (table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") >= 1) {
-        roiCell.classList.add("profit");
-      } else if (
-        table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") == 0
-      ) {
-        roiCell.classList.add("neutral");
+      const btn = e.target;
+      btn.closest("tr").remove();
+      productCount.innerHTML = tableInventory.rows.length - 1;
+      totalSpendings.innerHTML = formatter.format(
+        totalSpendings.innerHTML.replace(pattern, "") -
+          priceCell.innerHTML.replace(pattern, "")
+      );
+      roi.innerHTML = formatter.format(
+        roi.innerHTML.replace(pattern, "") -
+          roiCell.innerHTML.replace(pattern, "")
+      );
+      if (roi.innerHTML.replace(pattern, "") > "0.00") {
+        roi.classList.remove("lost");
+        roi.classList.add("profit");
+      } else if (roi.innerHTML.replace(pattern, "") < "0") {
+        roi.classList.remove("profit");
+        roi.classList.add("lost");
       } else {
-        roiCell.classList.add("lost");
+        roi.classList.remove("profit");
+        roi.classList.remove("lost");
+        roi.classList.add("neutral");
       }
-
-      var updatedPriceTd = document.querySelectorAll(".product_price");
-      var updatedRoiTd = document.querySelectorAll(".product_roi");
-
-      var updatedSumPrice = 0;
-      var updatedSumRoi = 0;
-
-      //Goes through each price td to get the sum of total price
-      for (var i = 1; i < updatedPriceTd.length; i++) {
-        updatedSumPrice += parseFloat(
-          updatedPriceTd[i].innerHTML.replace(pattern, "")
-        );
-      }
-
-      //Goes through each roi td to get the sum of roi price
-      for (var i = 1; i < updatedRoiTd.length; i++) {
-        updatedSumRoi += parseFloat(
-          updatedRoiTd[i].innerHTML.replace(pattern, "")
-        );
-      }
-
-      //Sets the totalSpending innerHTML to the sumPrice of table
-      //Using formatter to convert value in currency(USD)
-      totalSpendings.innerHTML = `${formatter.format(updatedSumPrice)}`;
-
-      //Sets the roi innerHTML to the sumRoi of table
-      //Using formatter to convert value in currency(USD)
-      roi.innerHTML = `${formatter.format(updatedSumRoi)}`;
-
-      document.querySelector(".form_heading").style.display = "block";
-      document.querySelector(".edit_heading").style.display = "none";
-      document.querySelector(".edit_btns").style.display = "none";
-      document.querySelector(".form_buttons").style.display = "flex";
-      document.querySelector(".form_popup").style.display = "none";
-      document.querySelector(".form_popup_background").style.display = "none";
     });
 
-    document.querySelector(".form_popup").style.display = "block";
-    document.querySelector(".form_popup_background").style.display = "block";
-    document.querySelector(".form_heading").style.display = "none";
-    document.querySelector(".edit_heading").style.display = "block";
-    document.querySelector(".form_buttons").style.display = "none";
-    document.querySelector(".edit_btns").style.display = "flex";
-  });
+    // const btnOptions = document.createElement("button");
+    // btnOptions.classList.add("options_btn");
+    // btnOptions.setAttribute("onclick", "displayToggle()");
+    // btnOptions.innerHTML = "...";
 
-  // });
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("option_container");
+    // optionContainer.classList.add("hidden");
 
-  // const editRow = document.createElement("button");
-  // const deleteRow = document.createElement("button");
-  // deleteRow.classList.add("delete_row");
-  // editRow.innerHTML = "Edit";
-  // deleteRow.innerHTML = "Delete";
+    const btnEdit = document.createElement("button");
+    btnEdit.classList.add("edit_btn");
+    btnEdit.innerHTML = `<i class="fas fa-pen"></i>`;
 
-  // clearRowAll.addEventListener("click", function () {
-  //   document.querySelector(".clear_row_all").style.visibility = "hidden";
-  //   document.querySelector(".delete_row").style.display = "block";
-  // });
+    // Create delete row button for each row
+    const clearRowAll = document.createElement("button");
+    clearRowAll.classList.add("clear_row_all");
+    clearRowAll.classList.add("fas");
+    clearRowAll.classList.add("fa-trash");
 
-  // Deletes selected row from table
-  // clearRowAll.addEventListener("click", function (e) {
-  //   if (!e.target.classList.contains("clear_row_all")) {
-  //     return;
-  //   }
-  //   const btn = e.target;
-  //   btn.closest("tr").remove();
-  //   productCount.innerHTML = tableInventory.rows.length - 1;
-  //   totalSpendings.innerHTML = formatter.format(
-  //     totalSpendings.innerHTML.replace(pattern, "") -
-  //       priceCell.innerHTML.replace(pattern, "")
-  //   );
-  //   roi.innerHTML = formatter.format(
-  //     roi.innerHTML.replace(pattern, "") -
-  //       roiCell.innerHTML.replace(pattern, "")
-  //   );
+    newRow.append(optionContainer);
 
-  //   if (roi.innerHTML.replace(pattern, "") > "0.00") {
-  //     roi.classList.remove("lost");
-  //     roi.classList.add("profit");
-  //   } else if (roi.innerHTML.replace(pattern, "") < "0.00") {
-  //     roi.classList.remove("profit");
-  //     roi.classList.add("lost");
-  //   } else {
-  //     roi.classList.remove("profit");
-  //     roi.classList.remove("lost");
-  //     roi.classList.add("neutral");
-  //   }
-  // });
+    optionContainer.appendChild(btnEdit);
+    optionContainer.appendChild(clearRowAll);
 
-  // Clear table excluding first row and resets the # of Products count
-  clearTable.addEventListener("click", function () {
-    while (tableInventory.rows.length > 1) {
-      tableInventory.deleteRow(1);
-      productCount.innerHTML = 0;
-      totalSpendings.innerHTML = "$0";
-      roi.innerHTML = "$0";
-      roiPercentage.innerHTML = "0%";
-      roi.classList.add("neutral");
-      roiPercentage.add("neutral");
-    }
+    // btnOptions.addEventListener("click", function () {
+    //   if (document.querySelector(".option_container").style.opacity === "0") {
+    //     document.querySelector(".option_container").style.opacity = "1";
+    //   } else {
+    //     document.querySelector(".option_container").style.opacity = "0";
+    //   }
+    // });
+
+    // btnOptions.addEventListener("click", function () {
+    // Deletes selected row from table
+
+    clearRowAll.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("clear_row_all")) {
+        return;
+      }
+      const btn = e.target;
+      btn.closest("tr").remove();
+      productCount.innerHTML = tableInventory.rows.length - 1;
+      totalSpendings.innerHTML = formatter.format(
+        totalSpendings.innerHTML.replace(pattern, "") -
+          priceCell.innerHTML.replace(pattern, "")
+      );
+      roi.innerHTML = formatter.format(
+        roi.innerHTML.replace(pattern, "") -
+          roiCell.innerHTML.replace(pattern, "")
+      );
+
+      if (roi.innerHTML.replace(pattern, "") > "0.00") {
+        roi.classList.remove("lost");
+        roi.classList.add("profit");
+      } else if (roi.innerHTML.replace(pattern, "") < "0.00") {
+        roi.classList.remove("profit");
+        roi.classList.add("lost");
+      } else {
+        roi.classList.remove("profit");
+        roi.classList.remove("lost");
+        roi.classList.add("neutral");
+      }
+
+      noData();
+      scrollPosition();
+    });
+
+    btnEdit.addEventListener("click", function () {
+      var table = document.querySelector(".table_inventory");
+
+      for (var i = 1; i < table.rows.length; i++) {
+        table.rows[i].onclick = function () {
+          rIndex = this.rowIndex;
+          productName.value = this.cells[0].innerHTML;
+          productBrand.value = this.cells[1].innerHTML;
+          productSize.value = this.cells[2].innerHTML;
+          productStyleId.value = this.cells[3].innerHTML;
+          productStatus.value = this.cells[4].innerHTML;
+          var pDateValue = new Date(this.cells[5].innerHTML);
+          var formattingPDate =
+            pDateValue.getFullYear() +
+            "-" +
+            ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+            "-" +
+            ("0" + pDateValue.getDate()).slice(-2);
+          purchaseDate.value = formattingPDate;
+          var sDateValue = new Date(this.cells[6].innerHTML);
+          var formattingSDate =
+            sDateValue.getFullYear() +
+            "-" +
+            ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+            "-" +
+            ("0" + sDateValue.getDate()).slice(-2);
+          soldDate.value = formattingSDate;
+          productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
+          productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
+          productCondition.value = this.cells[9].innerHTML;
+        };
+      }
+
+      btnCancel.addEventListener("click", function () {
+        productName.value = "";
+        productBrand.value = "";
+        productSize.value = "";
+        productStyleId.value = "";
+        productStatus.value = "";
+        purchaseDate.value = "";
+        soldDate.value = "";
+        productPrice.value = "";
+        productRoi.value = "";
+        productCondition.value = "";
+
+        document.querySelector(".form_popup").style.display = "none";
+        document.querySelector(".form_popup_background").style.display = "none";
+        document.querySelector(".form_heading").style.display = "block";
+        document.querySelector(".edit_heading").style.display = "none";
+        document.querySelector(".form_buttons").style.display = "flex";
+        document.querySelector(".edit_btns").style.display = "none";
+      });
+
+      editRow.addEventListener("click", function () {
+        table.rows[rIndex].cells[0].innerHTML = productName.value;
+        table.rows[rIndex].cells[1].innerHTML = productBrand.value;
+        table.rows[rIndex].cells[2].innerHTML = productSize.value;
+        table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
+        table.rows[rIndex].cells[4].innerHTML = productStatus.value;
+        table.rows[rIndex].cells[5].innerHTML = formattedPurchaseDate;
+        table.rows[rIndex].cells[6].innerHTML = formattedSoldDate;
+        table.rows[rIndex].cells[7].innerHTML = `${formatter.format(
+          productPrice.value
+        )}`;
+        table.rows[rIndex].cells[8].innerHTML = `${formatter.format(
+          productRoi.value
+        )}`;
+        table.rows[rIndex].cells[9].innerHTML = productCondition.value;
+
+        if (soldDate.value == "") {
+          soldCell.innerHTML = "";
+        }
+
+        if (table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") >= 1) {
+          roiCell.classList.add("profit");
+        } else if (
+          table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") == 0
+        ) {
+          roiCell.classList.add("neutral");
+        } else {
+          roiCell.classList.add("lost");
+        }
+
+        var updatedPriceTd = document.querySelectorAll(".product_price");
+        var updatedRoiTd = document.querySelectorAll(".product_roi");
+
+        var updatedSumPrice = 0;
+        var updatedSumRoi = 0;
+
+        //Goes through each price td to get the sum of total price
+        for (var i = 1; i < updatedPriceTd.length; i++) {
+          updatedSumPrice += parseFloat(
+            updatedPriceTd[i].innerHTML.replace(pattern, "")
+          );
+        }
+
+        //Goes through each roi td to get the sum of roi price
+        for (var i = 1; i < updatedRoiTd.length; i++) {
+          updatedSumRoi += parseFloat(
+            updatedRoiTd[i].innerHTML.replace(pattern, "")
+          );
+        }
+
+        //Sets the totalSpending innerHTML to the sumPrice of table
+        //Using formatter to convert value in currency(USD)
+        totalSpendings.innerHTML = `${formatter.format(updatedSumPrice)}`;
+
+        //Sets the roi innerHTML to the sumRoi of table
+        //Using formatter to convert value in currency(USD)
+        roi.innerHTML = `${formatter.format(updatedSumRoi)}`;
+
+        document.querySelector(".form_heading").style.display = "block";
+        document.querySelector(".edit_heading").style.display = "none";
+        document.querySelector(".edit_btns").style.display = "none";
+        document.querySelector(".form_buttons").style.display = "flex";
+        document.querySelector(".form_popup").style.display = "none";
+        document.querySelector(".form_popup_background").style.display = "none";
+      });
+
+      document.querySelector(".form_popup").style.display = "block";
+      document.querySelector(".form_popup_background").style.display = "block";
+      document.querySelector(".form_heading").style.display = "none";
+      document.querySelector(".edit_heading").style.display = "block";
+      document.querySelector(".form_buttons").style.display = "none";
+      document.querySelector(".edit_btns").style.display = "flex";
+    });
+
+    // });
+
+    // const editRow = document.createElement("button");
+    // const deleteRow = document.createElement("button");
+    // deleteRow.classList.add("delete_row");
+    // editRow.innerHTML = "Edit";
+    // deleteRow.innerHTML = "Delete";
+
+    // clearRowAll.addEventListener("click", function () {
+    //   document.querySelector(".clear_row_all").style.visibility = "hidden";
+    //   document.querySelector(".delete_row").style.display = "block";
+    // });
+
+    // Deletes selected row from table
+    // clearRowAll.addEventListener("click", function (e) {
+    //   if (!e.target.classList.contains("clear_row_all")) {
+    //     return;
+    //   }
+    //   const btn = e.target;
+    //   btn.closest("tr").remove();
+    //   productCount.innerHTML = tableInventory.rows.length - 1;
+    //   totalSpendings.innerHTML = formatter.format(
+    //     totalSpendings.innerHTML.replace(pattern, "") -
+    //       priceCell.innerHTML.replace(pattern, "")
+    //   );
+    //   roi.innerHTML = formatter.format(
+    //     roi.innerHTML.replace(pattern, "") -
+    //       roiCell.innerHTML.replace(pattern, "")
+    //   );
+
+    //   if (roi.innerHTML.replace(pattern, "") > "0.00") {
+    //     roi.classList.remove("lost");
+    //     roi.classList.add("profit");
+    //   } else if (roi.innerHTML.replace(pattern, "") < "0.00") {
+    //     roi.classList.remove("profit");
+    //     roi.classList.add("lost");
+    //   } else {
+    //     roi.classList.remove("profit");
+    //     roi.classList.remove("lost");
+    //     roi.classList.add("neutral");
+    //   }
+    // });
+
+    // Clear table excluding first row and resets the # of Products count
+    clearTable.addEventListener("click", function () {
+      while (tableInventory.rows.length > 1) {
+        tableInventory.deleteRow(1);
+        productCount.innerHTML = 0;
+        totalSpendings.innerHTML = "$0";
+        roi.innerHTML = "$0";
+        roiPercentage.innerHTML = "0%";
+        roi.classList.add("neutral");
+        roiPercentage.add("neutral");
+      }
+
+      noData();
+      scrollPosition();
+    });
+
+    // btnEdit.addEventListener("click", function () {
+
+    //   var table = document.querySelector(".table_inventory"),
+    //     rIndex;
+
+    //   for (var i = 1; i < table.rows.length; i++) {
+    //     table.rows[i].onclick = function () {
+    //       rIndex = this.rowIndex;
+    //       productName.value = this.cells[0].innerHTML;
+    //       productBrand.value = this.cells[1].innerHTML;
+    //       productSize.value = this.cells[2].innerHTML;
+    //       productStyleId.value = this.cells[3].innerHTML;
+    //       productStatus.value = this.cells[4].innerHTML;
+    //       var pDateValue = new Date(this.cells[5].innerHTML);
+    //       var formattingPDate =
+    //         pDateValue.getFullYear() +
+    //         "-" +
+    //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+    //         "-" +
+    //         ("0" + pDateValue.getDate()).slice(-2);
+    //       purchaseDate.value = formattingPDate;
+    //       var sDateValue = new Date(this.cells[6].innerHTML);
+    //       var formattingSDate =
+    //         sDateValue.getFullYear() +
+    //         "-" +
+    //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+    //         "-" +
+    //         ("0" + sDateValue.getDate()).slice(-2);
+    //       soldDate.value = formattingSDate;
+    //       productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
+    //       productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
+    //       productCondition.value = this.cells[9].innerHTML;
+    //     };
+    //   }
+
+    //   btnCancel.addEventListener("click", function () {
+    //     productName.value = "";
+    //     productBrand.value = "";
+    //     productSize.value = "";
+    //     productStyleId.value = "";
+    //     productStatus.value = "";
+    //     purchaseDate.value = "";
+    //     soldDate.value = "";
+    //     productPrice.value = "";
+    //     productRoi.value = "";
+    //     productCondition.value = "";
+
+    //     document.querySelector(".form_popup").style.display = "none";
+    //     document.querySelector(".form_popup_background").style.display = "none";
+    //     document.querySelector(".form_buttons").style.display = "flex";
+    //     document.querySelector(".edit_btns").style.display = "none";
+    //   });
+
+    //   //Edit row
+    //   editRow.addEventListener("click", function () {
+    //     table.rows[rIndex].cells[0].innerHTML = productName.value;
+    //     table.rows[rIndex].cells[1].innerHTML = productBrand.value;
+    //     table.rows[rIndex].cells[2].innerHTML = productSize.value;
+    //     table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
+    //     table.rows[rIndex].cells[4].innerHTML = productStatus.value;
+    //     table.rows[rIndex].cells[5].innerHTML = purchaseDate.value;
+    //     table.rows[rIndex].cells[6].innerHTML = soldDate.value;
+    //     table.rows[rIndex].cells[7].innerHTML = productPrice.value;
+    //     table.rows[rIndex].cells[8].innerHTML = productRoi.value;
+    //     table.rows[rIndex].cells[9].innerHTML = productCondition.value;
+
+    //     document.querySelector(".form_popup").style.display = "none";
+    //     document.querySelector(".form_popup_background").style.display = "none";
+    //   });
+
+    //   document.querySelector(".form_popup").style.display = "block";
+    //   document.querySelector(".form_popup_background").style.display = "block";
+    //   document.querySelector(".form_buttons").style.display = "none";
+    //   document.querySelector(".edit_btns").style.display = "flex";
+    // });
+
+    // [].slice
+    //   .call(document.querySelectorAll(".table_inventory tr"), 1)
+    //   .forEach(function (row) {
+    //     row.addEventListener("click", function () {
+    //       var ths = document.querySelectorAll(".table_inventory th");
+    //       var obj = [].reduce.call(
+    //         ths,
+    //         function (obj, th, i) {
+    //           obj[th.textContent] = row.cells[i].textContent;
+    //           return obj;
+    //         },
+    //         {}
+    //       );
+    //       const nameValue = row.cells[0].textContent;
+    //       const brandValue = row.cells[1].textContent;
+    //       const sizeValue = row.cells[2].textContent;
+    //       const styleIdValue = row.cells[3].textContent;
+    //       const statusValue = row.cells[4].textContent;
+    //       var pDateValue = new Date(row.cells[5].textContent);
+    //       var formattingPDate =
+    //         pDateValue.getFullYear() +
+    //         "-" +
+    //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
+    //         "-" +
+    //         ("0" + pDateValue.getDate()).slice(-2);
+    //       var sDateValue = new Date(row.cells[6].textContent);
+    //       var formattingSDate =
+    //         sDateValue.getFullYear() +
+    //         "-" +
+    //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
+    //         "-" +
+    //         ("0" + sDateValue.getDate()).slice(-2);
+    //       const priceValue = row.cells[7].textContent.replace(pattern, "");
+    //       const roiValue = row.cells[8].textContent.replace(pattern, "");
+    //       const conditionValue = row.cells[9].textContent;
+
+    //       productName.value = nameValue;
+    //       productBrand.value = brandValue;
+    //       productSize.value = sizeValue;
+    //       productStyleId.value = styleIdValue;
+    //       productStatus.value = statusValue;
+    //       purchaseDate.value = formattingPDate;
+    //       soldDate.value = formattingSDate;
+    //       productPrice.value = priceValue;
+    //       productRoi.value = roiValue;
+    //       productCondition.value = conditionValue;
+
+    //       row.document.querySelector(".product_name_td").innerHTML =
+    //         productName.value;
+
+    //       sele
+    //     });
+    //   });
+
+    tableInventory.append(newRow);
+
+    // nameCell.append(clearRow);
+    // newRow.append(btnOptions);
+    // newRow.appendChild(btnOptions);
+    // roiCell.after(deleteRow);
+    //   tableInventory.innerHTML = newRow;
 
     noData();
     scrollPosition();
+
+    document.querySelector(".product_name").style.borderColor = "#d3d3d3";
+    document.querySelector(".product_date").style.borderColor = "#d3d3d3";
+    document.querySelector(".product_price").style.borderColor = "#d3d3d3";
+    document.querySelector(".r_name").style.opacity = "0";
+    document.querySelector(".r_date").style.opacity = "0";
+    document.querySelector(".r_price").style.opacity = "0";
+
+    document.querySelector(".form_popup_background").style.display = "none";
   });
-
-  // btnEdit.addEventListener("click", function () {
-
-  //   var table = document.querySelector(".table_inventory"),
-  //     rIndex;
-
-  //   for (var i = 1; i < table.rows.length; i++) {
-  //     table.rows[i].onclick = function () {
-  //       rIndex = this.rowIndex;
-  //       productName.value = this.cells[0].innerHTML;
-  //       productBrand.value = this.cells[1].innerHTML;
-  //       productSize.value = this.cells[2].innerHTML;
-  //       productStyleId.value = this.cells[3].innerHTML;
-  //       productStatus.value = this.cells[4].innerHTML;
-  //       var pDateValue = new Date(this.cells[5].innerHTML);
-  //       var formattingPDate =
-  //         pDateValue.getFullYear() +
-  //         "-" +
-  //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
-  //         "-" +
-  //         ("0" + pDateValue.getDate()).slice(-2);
-  //       purchaseDate.value = formattingPDate;
-  //       var sDateValue = new Date(this.cells[6].innerHTML);
-  //       var formattingSDate =
-  //         sDateValue.getFullYear() +
-  //         "-" +
-  //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
-  //         "-" +
-  //         ("0" + sDateValue.getDate()).slice(-2);
-  //       soldDate.value = formattingSDate;
-  //       productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
-  //       productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
-  //       productCondition.value = this.cells[9].innerHTML;
-  //     };
-  //   }
-
-  //   btnCancel.addEventListener("click", function () {
-  //     productName.value = "";
-  //     productBrand.value = "";
-  //     productSize.value = "";
-  //     productStyleId.value = "";
-  //     productStatus.value = "";
-  //     purchaseDate.value = "";
-  //     soldDate.value = "";
-  //     productPrice.value = "";
-  //     productRoi.value = "";
-  //     productCondition.value = "";
-
-  //     document.querySelector(".form_popup").style.display = "none";
-  //     document.querySelector(".form_popup_background").style.display = "none";
-  //     document.querySelector(".form_buttons").style.display = "flex";
-  //     document.querySelector(".edit_btns").style.display = "none";
-  //   });
-
-  //   //Edit row
-  //   editRow.addEventListener("click", function () {
-  //     table.rows[rIndex].cells[0].innerHTML = productName.value;
-  //     table.rows[rIndex].cells[1].innerHTML = productBrand.value;
-  //     table.rows[rIndex].cells[2].innerHTML = productSize.value;
-  //     table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
-  //     table.rows[rIndex].cells[4].innerHTML = productStatus.value;
-  //     table.rows[rIndex].cells[5].innerHTML = purchaseDate.value;
-  //     table.rows[rIndex].cells[6].innerHTML = soldDate.value;
-  //     table.rows[rIndex].cells[7].innerHTML = productPrice.value;
-  //     table.rows[rIndex].cells[8].innerHTML = productRoi.value;
-  //     table.rows[rIndex].cells[9].innerHTML = productCondition.value;
-
-  //     document.querySelector(".form_popup").style.display = "none";
-  //     document.querySelector(".form_popup_background").style.display = "none";
-  //   });
-
-  //   document.querySelector(".form_popup").style.display = "block";
-  //   document.querySelector(".form_popup_background").style.display = "block";
-  //   document.querySelector(".form_buttons").style.display = "none";
-  //   document.querySelector(".edit_btns").style.display = "flex";
-  // });
-
-  // [].slice
-  //   .call(document.querySelectorAll(".table_inventory tr"), 1)
-  //   .forEach(function (row) {
-  //     row.addEventListener("click", function () {
-  //       var ths = document.querySelectorAll(".table_inventory th");
-  //       var obj = [].reduce.call(
-  //         ths,
-  //         function (obj, th, i) {
-  //           obj[th.textContent] = row.cells[i].textContent;
-  //           return obj;
-  //         },
-  //         {}
-  //       );
-  //       const nameValue = row.cells[0].textContent;
-  //       const brandValue = row.cells[1].textContent;
-  //       const sizeValue = row.cells[2].textContent;
-  //       const styleIdValue = row.cells[3].textContent;
-  //       const statusValue = row.cells[4].textContent;
-  //       var pDateValue = new Date(row.cells[5].textContent);
-  //       var formattingPDate =
-  //         pDateValue.getFullYear() +
-  //         "-" +
-  //         ("0" + (pDateValue.getMonth() + 1)).slice(-2) +
-  //         "-" +
-  //         ("0" + pDateValue.getDate()).slice(-2);
-  //       var sDateValue = new Date(row.cells[6].textContent);
-  //       var formattingSDate =
-  //         sDateValue.getFullYear() +
-  //         "-" +
-  //         ("0" + (sDateValue.getMonth() + 1)).slice(-2) +
-  //         "-" +
-  //         ("0" + sDateValue.getDate()).slice(-2);
-  //       const priceValue = row.cells[7].textContent.replace(pattern, "");
-  //       const roiValue = row.cells[8].textContent.replace(pattern, "");
-  //       const conditionValue = row.cells[9].textContent;
-
-  //       productName.value = nameValue;
-  //       productBrand.value = brandValue;
-  //       productSize.value = sizeValue;
-  //       productStyleId.value = styleIdValue;
-  //       productStatus.value = statusValue;
-  //       purchaseDate.value = formattingPDate;
-  //       soldDate.value = formattingSDate;
-  //       productPrice.value = priceValue;
-  //       productRoi.value = roiValue;
-  //       productCondition.value = conditionValue;
-
-  //       row.document.querySelector(".product_name_td").innerHTML =
-  //         productName.value;
-
-  //       sele
-  //     });
-  //   });
-
-  tableInventory.append(newRow);
-
-  // nameCell.append(clearRow);
-  // newRow.append(btnOptions);
-  // newRow.appendChild(btnOptions);
-  // roiCell.after(deleteRow);
-  //   tableInventory.innerHTML = newRow;
-
-  noData();
-  scrollPosition();
-
-  document.querySelector(".product_name").style.borderColor = "#d3d3d3";
-  document.querySelector(".product_date").style.borderColor = "#d3d3d3";
-  document.querySelector(".product_price").style.borderColor = "#d3d3d3";
-  document.querySelector(".r_name").style.opacity = "0";
-  document.querySelector(".r_date").style.opacity = "0";
-  document.querySelector(".r_price").style.opacity = "0";
-
-  document.querySelector(".form_popup_background").style.display = "none";
-});
+}
 
 function noData() {
   if (productCount.innerHTML >= 1) {
