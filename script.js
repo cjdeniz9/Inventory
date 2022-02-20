@@ -26,14 +26,17 @@ const inventoryForm = document.querySelector(".inventory_form");
 const clearTable = document.querySelector(".clear_table");
 
 const productName = document.querySelector(".product_name");
-const productBrand = document.querySelector(".product_brand");
 const productSize = document.querySelector(".product_size");
 const productStyleId = document.querySelector(".product_style_id");
 const productStatus = document.querySelector(".product_status");
-const purchaseDate = document.querySelector(".product_date");
-const soldDate = document.querySelector(".product_date_sold");
-const productPrice = document.querySelector(".product_price");
 const productRoi = document.querySelector(".product_roi");
+const productPrice = document.querySelector(".product_price");
+const purchaseDate = document.querySelector(".product_date");
+const placeOfPurchase = document.querySelector(".product_place_of_purchase");
+const soldDate = document.querySelector(".product_date_sold");
+const productPlatform = document.querySelector(".product_platform");
+const productBrand = document.querySelector(".product_brand");
+const productColorway = document.querySelector(".product_colorway");
 const productCondition = document.querySelector(".product_condition");
 
 const tableInventory = document.querySelector(".table_inventory");
@@ -316,6 +319,113 @@ function searchProduct() {
   }
 }
 
+document.getElementById("status_filter").onchange = changeListener;
+
+function changeListener() {
+  var statusVal = this.value;
+
+  var txtValue;
+  table = document.querySelector(".table_inventory");
+  tr = table.getElementsByTagName("tr");
+
+  var regex = /\b(inventory|inventory_2)\b/gi;
+
+  var soldStr = "sold";
+  var listedStr = "listed";
+  var unlistedStr = "unlisted";
+
+  if (statusVal == "sold") {
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent.replace(regex, "").replaceAll(/\s/g, "");
+        if (txtValue.toUpperCase() == soldStr.toUpperCase()) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  } else if (statusVal == "listed") {
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent.replace(regex, "").replaceAll(/\s/g, "");
+        if (txtValue.toUpperCase() == listedStr.toUpperCase()) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  } else if (statusVal == "unlisted") {
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent.replace(regex, "").replaceAll(/\s/g, "");
+        if (txtValue.toUpperCase() == unlistedStr.toUpperCase()) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  } else if (statusVal == "all") {
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        txtValue = td.textContent.replace(regex, "").replaceAll(/\s/g, "");
+        if (txtValue.toUpperCase() != "") {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+}
+
+// if (selectedValue == "listed") {
+//   alert("Please select a card type");
+// }
+
+// document.getElementById("status_filter").onchange = changeListener;
+
+// function changeListener() {
+//   var statusVal = this.value;
+
+//   var input, filter, table, tr, td, i, txtValue;
+// input = document.getElementById(".status_filter");
+// filter = input.value.toUpperCase();
+//   table = document.querySelector(".table_inventory");
+//   tr = table.getElementsByTagName("tr");
+
+//   var regex = /\b(inventory|inventory_2)\b/gi;
+//   var word = table.cell[3].textContent
+//     .replace(regex, "")
+//     .replaceAll(/\s/g, "");
+
+//   if (statusVal == "sold") {
+//     var input, filter, table, tr, td, i;
+//     input = document.getElementById("mylist");
+//     filter = input.value.toUpperCase();
+//     table = document.getElementById("myTable");
+//     tr = table.getElementsByTagName("tr");
+//     for (i = 0; i < tr.length; i++) {
+//       td = tr[i].getElementsByTagName("td")[3];
+//       if (td) {
+//         if (td.innerHTML.toUpperCase() == "sold") {
+//           tr[i].style.display = "";
+//         } else {
+//           tr[i].style.display = "none";
+//         }
+//       }
+//     }
+//   } else if (statusVal == "listed") {
+//     document.body.style.background = "blue";
+//   }
+// }
+
 // Checks if menu icon is clicked and displays visible if true
 function checkMenuStatus() {
   if (document.querySelector(".menu_btn").checked) {
@@ -399,14 +509,17 @@ if (userMenu) {
 if (openForm) {
   openForm.addEventListener("click", () => {
     productName.value = "";
-    productBrand.value = "";
     productSize.value = "";
     productStyleId.value = "";
     productStatus.value = "";
-    purchaseDate.value = "";
-    soldDate.value = "";
-    productPrice.value = "";
     productRoi.value = "";
+    productPrice.value = "";
+    purchaseDate.value = "";
+    placeOfPurchase.value = "";
+    soldDate.value = "";
+    productPlatform.value = "";
+    productBrand.value = "";
+    productColorway.value = "";
     productCondition.value = "";
     document.querySelector(".form_popup").style.display = "block";
     document.querySelector(".form_popup_background").style.display = "block";
@@ -427,6 +540,195 @@ if (closeForm) {
   });
 }
 
+const size3 = document.querySelector(".size3");
+const size35 = document.querySelector(".size35");
+const size4 = document.querySelector(".size4");
+const size45 = document.querySelector(".size45");
+const size5 = document.querySelector(".size5");
+const size55 = document.querySelector(".size55");
+const size6 = document.querySelector(".size6");
+const size65 = document.querySelector(".size65");
+const size7 = document.querySelector(".size7");
+const size75 = document.querySelector(".size75");
+const size8 = document.querySelector(".size8");
+const size85 = document.querySelector(".size85");
+const size9 = document.querySelector(".size9");
+const size95 = document.querySelector(".size95");
+const size10 = document.querySelector(".size10");
+const size105 = document.querySelector(".size105");
+const size11 = document.querySelector(".size11");
+const size115 = document.querySelector(".size115");
+const size12 = document.querySelector(".size12");
+const size125 = document.querySelector(".size125");
+const size13 = document.querySelector(".size13");
+const size135 = document.querySelector(".size135");
+
+const sizeShoes = document.querySelector(".sizeShoes");
+const sizeClothes = document.querySelector(".sizeClothes");
+const sizeOther = document.querySelector(".sizeOther");
+
+const shoeSizesFirst = document.querySelector(".shoe_sizes_first");
+const shoeSizesSecond = document.querySelector(".shoe_sizes_second");
+const clothesSizes = document.querySelector(".clothes_sizes");
+const otherSizes = document.querySelector(".other_sizes");
+
+sizeShoes.addEventListener("click", () => {
+  sizeClothes.style.borderColor = "rgb(222, 220, 240)";
+  sizeOther.style.borderColor = "rgb(222, 220, 240)";
+  sizeShoes.style.borderColor = "rgb(29, 52, 183)";
+  clothesSizes.style.display = "none";
+  otherSizes.style.display = "none";
+  shoeSizesFirst.style.display = "flex";
+  shoeSizesSecond.style.display = "flex";
+});
+
+sizeClothes.addEventListener("click", () => {
+  sizeShoes.style.borderColor = "rgb(222, 220, 240)";
+  sizeOther.style.borderColor = "rgb(222, 220, 240)";
+  sizeClothes.style.borderColor = "rgb(29, 52, 183)";
+  shoeSizesFirst.style.display = "none";
+  shoeSizesSecond.style.display = "none";
+  otherSizes.style.display = "none";
+  clothesSizes.style.display = "flex";
+});
+
+sizeOther.addEventListener("click", () => {
+  sizeShoes.style.borderColor = "rgb(222, 220, 240)";
+  sizeClothes.style.borderColor = "rgb(222, 220, 240)";
+  sizeOther.style.borderColor = "rgb(29, 52, 183)";
+  shoeSizesFirst.style.display = "none";
+  shoeSizesSecond.style.display = "none";
+  clothesSizes.style.display = "none";
+  otherSizes.style.display = "flex";
+});
+
+document.querySelector(".size3").addEventListener("click", () => {
+  productSize.value = "3";
+});
+
+document.querySelector(".size35").addEventListener("click", () => {
+  productSize.value = "3.5";
+});
+
+document.querySelector(".size4").addEventListener("click", () => {
+  productSize.value = "4";
+});
+
+document.querySelector(".size45").addEventListener("click", () => {
+  productSize.value = "4.5";
+});
+
+document.querySelector(".size5").addEventListener("click", () => {
+  productSize.value = "5";
+});
+
+document.querySelector(".size55").addEventListener("click", () => {
+  productSize.value = "5.5";
+});
+
+document.querySelector(".size6").addEventListener("click", () => {
+  productSize.value = "6";
+});
+
+document.querySelector(".size65").addEventListener("click", () => {
+  productSize.value = "6.5";
+});
+
+document.querySelector(".size7").addEventListener("click", () => {
+  productSize.value = "7";
+});
+
+document.querySelector(".size75").addEventListener("click", () => {
+  productSize.value = "7.5";
+});
+
+document.querySelector(".size8").addEventListener("click", () => {
+  productSize.value = "8";
+});
+
+document.querySelector(".size85").addEventListener("click", () => {
+  productSize.value = "8.5";
+});
+
+document.querySelector(".size9").addEventListener("click", () => {
+  productSize.value = "9";
+});
+
+document.querySelector(".size95").addEventListener("click", () => {
+  productSize.value = "9.5";
+});
+
+document.querySelector(".size10").addEventListener("click", () => {
+  productSize.value = "10";
+});
+
+document.querySelector(".size105").addEventListener("click", () => {
+  productSize.value = "10.5";
+});
+
+document.querySelector(".size11").addEventListener("click", () => {
+  productSize.value = "11";
+});
+
+document.querySelector(".size115").addEventListener("click", () => {
+  productSize.value = "11.5";
+});
+
+document.querySelector(".size12").addEventListener("click", () => {
+  productSize.value = "12";
+});
+
+document.querySelector(".size125").addEventListener("click", () => {
+  productSize.value = "12.5";
+});
+
+document.querySelector(".size13").addEventListener("click", () => {
+  productSize.value = "13";
+});
+
+document.querySelector(".size135").addEventListener("click", () => {
+  productSize.value = "13.5";
+});
+
+document.querySelector(".sizeXXS").addEventListener("click", () => {
+  productSize.value = "XXS";
+});
+
+document.querySelector(".sizeXS").addEventListener("click", () => {
+  productSize.value = "XS";
+});
+
+document.querySelector(".sizeS").addEventListener("click", () => {
+  productSize.value = "S";
+});
+
+document.querySelector(".sizeM").addEventListener("click", () => {
+  productSize.value = "M";
+});
+
+document.querySelector(".sizeL").addEventListener("click", () => {
+  productSize.value = "L";
+});
+
+document.querySelector(".sizeXL").addEventListener("click", () => {
+  productSize.value = "XL";
+});
+
+document.querySelector(".sizeXXL").addEventListener("click", () => {
+  productSize.value = "XXL";
+});
+
+document.querySelector(".sizeXXXL").addEventListener("click", () => {
+  productSize.value = "XXXL";
+});
+document.querySelector(".sizeOS").addEventListener("click", () => {
+  productSize.value = "OS";
+});
+
+document.querySelector(".sizeNA").addEventListener("click", () => {
+  productSize.value = "N/A";
+});
+
 // Event Listener for Form
 if (submitForm) {
   submitForm.addEventListener("click", function (e) {
@@ -434,34 +736,37 @@ if (submitForm) {
     // e.preventDefault();
 
     // Input fields required
-    if (
-      productName.value === "" ||
-      purchaseDate.value === "" ||
-      productPrice.value === ""
-    ) {
-      document.querySelector(".product_name").style.borderColor = "red";
-      document.querySelector(".product_date").style.borderColor = "red";
-      document.querySelector(".product_price").style.borderColor = "red";
-      document.querySelector(".r_name").style.opacity = "1";
-      document.querySelector(".r_date").style.opacity = "1";
-      document.querySelector(".r_price").style.opacity = "1";
-      return false;
-    }
+    // if (
+    //   productName.value === "" ||
+    //   purchaseDate.value === "" ||
+    //   productPrice.value === ""
+    // ) {
+    //   document.querySelector(".product_name").style.borderColor = "red";
+    //   document.querySelector(".product_date").style.borderColor = "red";
+    //   document.querySelector(".product_price").style.borderColor = "red";
+    //   document.querySelector(".r_name").style.opacity = "1";
+    //   document.querySelector(".r_date").style.opacity = "1";
+    //   document.querySelector(".r_price").style.opacity = "1";
+    //   return false;
+    // }
 
     // Creates a in row when button is click
     var newRow = tableInventory.insertRow(1);
 
     // Fills in each cell for new row
     var nameCell = newRow.insertCell(0);
-    var brandCell = newRow.insertCell(1);
-    var sizeCell = newRow.insertCell(2);
-    var styleidCell = newRow.insertCell(3);
-    var statusCell = newRow.insertCell(4);
-    var purchasedCell = newRow.insertCell(5);
-    var soldCell = newRow.insertCell(6);
-    var priceCell = newRow.insertCell(7);
-    var roiCell = newRow.insertCell(8);
-    var conditionCell = newRow.insertCell(9);
+    var sizeCell = newRow.insertCell(1);
+    var styleidCell = newRow.insertCell(2);
+    var statusCell = newRow.insertCell(3);
+    var roiCell = newRow.insertCell(4);
+    var priceCell = newRow.insertCell(5);
+    var purchasedCell = newRow.insertCell(6);
+    var placeofCell = newRow.insertCell(7);
+    var soldCell = newRow.insertCell(8);
+    var platformCell = newRow.insertCell(9);
+    var brandCell = newRow.insertCell(10);
+    var colorwayCell = newRow.insertCell(11);
+    var conditionCell = newRow.insertCell(12);
 
     // Formats date
     var inputPurchaseDate = new Date(purchaseDate.value);
@@ -486,39 +791,47 @@ if (submitForm) {
 
     //Gets input value and places as cell innerHTML
     nameCell.innerHTML = productName.value;
-    brandCell.innerHTML = productBrand.value;
     sizeCell.innerHTML = productSize.value;
     styleidCell.innerHTML = productStyleId.value;
-    statusCell.innerHTML = productStatus.value;
-    purchasedCell.innerHTML = formattedPurchaseDate;
-    soldCell.innerHTML = formattedSoldDate;
-    priceCell.innerHTML = `${formatter.format(productPrice.value)}`;
     roiCell.innerHTML = `${formatter.format(productRoi.value)}`;
+    priceCell.innerHTML = `${formatter.format(productPrice.value)}`;
+    purchasedCell.innerHTML = formattedPurchaseDate;
+    placeofCell.innerHTML = placeOfPurchase.value;
+    soldCell.innerHTML = formattedSoldDate;
+    platformCell.innerHTML = productPlatform.value;
+    brandCell.innerHTML = productBrand.value;
+    colorwayCell.innerHTML = productColorway.value;
     conditionCell.innerHTML = productCondition.value;
 
+    statusFormat(statusCell);
+
+    //Sold date blank, set innerHTML blank
     if (soldDate.value == "") {
       soldCell.innerHTML = "";
     }
 
     //Give cell a class name
     nameCell.classList.add("product_name_td");
-    brandCell.classList.add("product_brand_td");
     sizeCell.classList.add("product_size_td");
     styleidCell.classList.add("product_style_id_td");
     statusCell.classList.add("product_status_td");
-    purchasedCell.classList.add("date_purchased_td");
-    soldCell.classList.add("date_sold_td");
-    priceCell.classList.add("product_price");
     roiCell.classList.add("product_roi");
+    priceCell.classList.add("product_price");
+    purchasedCell.classList.add("date_purchased_td");
+    placeofCell.classList.add("place_of_purchase_td");
+    soldCell.classList.add("date_sold_td");
+    platformCell.classList.add("product_platform_td");
+    brandCell.classList.add("product_brand_td");
+    colorwayCell.classList.add("product_colorway_td");
     conditionCell.classList.add("product_condition_td");
 
     console.log(productStatus.value);
 
-    if (productStatus.value === "sold" || productStatus.value === "Sold") {
-      statusCell.classList.add("sold");
-    } else {
-      statusCell.classList.add("pending");
-    }
+    // if (productStatus.value === "sold" || productStatus.value === "Sold") {
+    //   statusCell.classList.add("sold");
+    // } else {
+    //   statusCell.classList.add("pending");
+    // }
 
     //Adds class name to roiCell depending on its value to change text color
     if (productRoi.value >= 1) {
@@ -544,7 +857,7 @@ if (submitForm) {
 
     //Sets the totalSpending innerHTML to the sumPrice of table
     //Using formatter to convert value in currency(USD)
-    totalSpendings.innerHTML = `${formatter.format(sumPrice)}`;
+    // totalSpendings.innerHTML = `${formatter.format(sumPrice)}`;
 
     //Goes through each roi td to get the sum of roi price
     for (var i = 1; i < roiTd.length; i++) {
@@ -555,17 +868,13 @@ if (submitForm) {
     //Using formatter to convert value in currency(USD)
     roi.innerHTML = `${formatter.format(sumRoi)}`;
 
+    //Sets the totalSpending innerHTML to the sumPrice of table
+    //Using formatter to convert value in currency(USD)
+    var revenue = sumPrice + sumRoi;
+    totalSpendings.innerHTML = `${formatter.format(revenue)}`;
+
     //Adds class name to roi depending on its value to change text color
-    if (roi.innerHTML.replace(pattern, "") > "1") {
-      roi.classList.remove("neutral");
-      roi.classList.remove("lost");
-      roi.classList.add("profit");
-    } else if (roi.innerHTML.replace(pattern, "") < "0") {
-      roi.classList.remove("neutral");
-      roi.classList.add("lost");
-    } else {
-      roi.classList.add("neutral");
-    }
+    roiColor();
 
     // Not need as of now
     // var roiPercent = (parseFloat(sumRoi / sumPrice) * 100).toFixed(2);
@@ -654,13 +963,21 @@ if (submitForm) {
 
     const btnEdit = document.createElement("button");
     btnEdit.classList.add("edit_btn");
-    btnEdit.innerHTML = `<i class="fas fa-pen"></i>`;
+    btnEdit.innerHTML = `
+    <span class="material-icons-two-tone skyblue">
+    edit
+    </span>`;
 
     // Create delete row button for each row
     const clearRowAll = document.createElement("button");
     clearRowAll.classList.add("clear_row_all");
-    clearRowAll.classList.add("fas");
-    clearRowAll.classList.add("fa-trash");
+    clearRowAll.innerHTML = `
+    <span class="material-icons-two-tone clear_td">
+    delete
+    </span>
+    `;
+    // clearRowAll.classList.add("fas");
+    // clearRowAll.classList.add("fa-trash");
 
     newRow.append(optionContainer);
 
@@ -679,7 +996,7 @@ if (submitForm) {
     // Deletes selected row from table
 
     clearRowAll.addEventListener("click", function (e) {
-      if (!e.target.classList.contains("clear_row_all")) {
+      if (!e.target.classList.contains("clear_td")) {
         return;
       }
       const btn = e.target;
@@ -707,7 +1024,7 @@ if (submitForm) {
       }
 
       noData();
-      scrollPosition();
+      // scrollPosition();
     });
 
     btnEdit.addEventListener("click", function () {
@@ -717,11 +1034,26 @@ if (submitForm) {
         table.rows[i].onclick = function () {
           rIndex = this.rowIndex;
           productName.value = this.cells[0].innerHTML;
-          productBrand.value = this.cells[1].innerHTML;
-          productSize.value = this.cells[2].innerHTML;
-          productStyleId.value = this.cells[3].innerHTML;
-          productStatus.value = this.cells[4].innerHTML;
-          var pDateValue = new Date(this.cells[5].innerHTML);
+          productSize.value = this.cells[1].innerHTML;
+          productStyleId.value = this.cells[2].innerHTML;
+
+          var regex = /\b(inventory|inventory_2)\b/gi;
+          productStatus.value = this.cells[3].textContent
+            .replace(regex, "")
+            .replaceAll(/\s/g, "");
+          // if (this.cells[3].textContent.replaceAll(/\s/g, "") == "sold") {
+          //   console.log("true");
+          //   productStatus.value = "sold";
+          // } else {
+          //   console.log(this.cells[3].textContent.replaceAll(/\s/g, ""));
+          // }
+          // console.log(this.cells[3].textContent.replaceAll(/\s/g, ""));
+          // productStatus.value = this.cells[3].innerHTML;
+
+          productRoi.value = this.cells[4].innerHTML.replace(pattern, "");
+          productPrice.value = this.cells[5].innerHTML.replace(pattern, "");
+
+          var pDateValue = new Date(this.cells[6].innerHTML);
           var formattingPDate =
             pDateValue.getFullYear() +
             "-" +
@@ -729,7 +1061,10 @@ if (submitForm) {
             "-" +
             ("0" + pDateValue.getDate()).slice(-2);
           purchaseDate.value = formattingPDate;
-          var sDateValue = new Date(this.cells[6].innerHTML);
+
+          placeOfPurchase.value = this.cells[7].innerHTML;
+
+          var sDateValue = new Date(this.cells[8].innerHTML);
           var formattingSDate =
             sDateValue.getFullYear() +
             "-" +
@@ -737,9 +1072,11 @@ if (submitForm) {
             "-" +
             ("0" + sDateValue.getDate()).slice(-2);
           soldDate.value = formattingSDate;
-          productPrice.value = this.cells[7].innerHTML.replace(pattern, "");
-          productRoi.value = this.cells[8].innerHTML.replace(pattern, "");
-          productCondition.value = this.cells[9].innerHTML;
+
+          productPlatform.value = this.cells[9].innerHTML;
+          productBrand.value = this.cells[10].innerHTML;
+          productColorway.value = this.cells[11].innerHTML;
+          productCondition.value = this.cells[12].innerHTML;
         };
       }
 
@@ -764,34 +1101,76 @@ if (submitForm) {
       });
 
       editRow.addEventListener("click", function () {
+        var inputPurchaseDate = new Date(purchaseDate.value);
+        var formattedPurchaseDate =
+          inputPurchaseDate.getMonth() +
+          1 +
+          "/" +
+          (inputPurchaseDate.getDate() + 1) +
+          "/" +
+          inputPurchaseDate.getFullYear();
+        var inputSoldDate = new Date(soldDate.value);
+        var month = [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+        ][inputSoldDate.getMonth()];
+        var formattedSoldDate =
+          month +
+          "/" +
+          (inputSoldDate.getDate() + 1) +
+          "/" +
+          inputSoldDate.getFullYear();
+
         table.rows[rIndex].cells[0].innerHTML = productName.value;
-        table.rows[rIndex].cells[1].innerHTML = productBrand.value;
-        table.rows[rIndex].cells[2].innerHTML = productSize.value;
-        table.rows[rIndex].cells[3].innerHTML = productStyleId.value;
-        table.rows[rIndex].cells[4].innerHTML = productStatus.value;
-        table.rows[rIndex].cells[5].innerHTML = formattedPurchaseDate;
-        table.rows[rIndex].cells[6].innerHTML = formattedSoldDate;
-        table.rows[rIndex].cells[7].innerHTML = `${formatter.format(
-          productPrice.value
-        )}`;
-        table.rows[rIndex].cells[8].innerHTML = `${formatter.format(
+        table.rows[rIndex].cells[1].innerHTML = productSize.value;
+        table.rows[rIndex].cells[2].innerHTML = productStyleId.value;
+        table.rows[rIndex].cells[4].innerHTML = `${formatter.format(
           productRoi.value
         )}`;
-        table.rows[rIndex].cells[9].innerHTML = productCondition.value;
+        table.rows[rIndex].cells[5].innerHTML = `${formatter.format(
+          productPrice.value
+        )}`;
+        table.rows[rIndex].cells[6].innerHTML = formattedPurchaseDate;
+        table.rows[rIndex].cells[7].innerHTML = placeOfPurchase.value;
+        table.rows[rIndex].cells[8].innerHTML = formattedSoldDate;
+        table.rows[rIndex].cells[9].innerHTML = productPlatform.value;
+        table.rows[rIndex].cells[10].innerHTML = productBrand.value;
+        table.rows[rIndex].cells[11].innerHTML = productColorway.value;
+        table.rows[rIndex].cells[12].innerHTML = productCondition.value;
+
+        statusFormat(table.rows[rIndex].cells[3]);
+
+        if (table.rows[rIndex].cells[4].innerHTML.replace(pattern, "") >= 1) {
+          table.rows[rIndex].cells[4].classList.remove("lost");
+          table.rows[rIndex].cells[4].classList.remove("neutral");
+          table.rows[rIndex].cells[4].classList.add("profit");
+        } else if (
+          table.rows[rIndex].cells[4].innerHTML.replace(pattern, "") == 0
+        ) {
+          table.rows[rIndex].cells[4].classList.remove("lost");
+          table.rows[rIndex].cells[4].classList.remove("profit");
+          table.rows[rIndex].cells[4].classList.add("neutral");
+        } else {
+          table.rows[rIndex].cells[4].classList.remove("neutral");
+          table.rows[rIndex].cells[4].classList.remove("profit");
+          table.rows[rIndex].cells[4].classList.add("lost");
+        }
 
         if (soldDate.value == "") {
-          soldCell.innerHTML = "";
+          table.rows[rIndex].cells[8].innerHTML = "";
         }
 
-        if (table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") >= 1) {
-          roiCell.classList.add("profit");
-        } else if (
-          table.rows[rIndex].cells[8].innerHTML.replace(pattern, "") == 0
-        ) {
-          roiCell.classList.add("neutral");
-        } else {
-          roiCell.classList.add("lost");
-        }
+        roiColor();
 
         var updatedPriceTd = document.querySelectorAll(".product_price");
         var updatedRoiTd = document.querySelectorAll(".product_roi");
@@ -815,11 +1194,14 @@ if (submitForm) {
 
         //Sets the totalSpending innerHTML to the sumPrice of table
         //Using formatter to convert value in currency(USD)
-        totalSpendings.innerHTML = `${formatter.format(updatedSumPrice)}`;
+        // totalSpendings.innerHTML = `${formatter.format(updatedSumPrice)}`;
 
         //Sets the roi innerHTML to the sumRoi of table
         //Using formatter to convert value in currency(USD)
         roi.innerHTML = `${formatter.format(updatedSumRoi)}`;
+
+        var revenue = updatedSumPrice + updatedSumRoi;
+        totalSpendings.innerHTML = `${formatter.format(revenue)}`;
 
         document.querySelector(".form_heading").style.display = "block";
         document.querySelector(".edit_heading").style.display = "none";
@@ -887,13 +1269,15 @@ if (submitForm) {
         productCount.innerHTML = 0;
         totalSpendings.innerHTML = "$0";
         roi.innerHTML = "$0";
-        roiPercentage.innerHTML = "0%";
+        // roiPercentage.innerHTML = "0%";
+        roi.classList.remove("lost");
+        roi.classList.remove("profit");
         roi.classList.add("neutral");
-        roiPercentage.add("neutral");
+        // roiPercentage.add("neutral");
       }
 
       noData();
-      scrollPosition();
+      // scrollPosition();
     });
 
     // btnEdit.addEventListener("click", function () {
@@ -1035,7 +1419,7 @@ if (submitForm) {
     //   tableInventory.innerHTML = newRow;
 
     noData();
-    scrollPosition();
+    // scrollPosition();
 
     document.querySelector(".product_name").style.borderColor = "#d3d3d3";
     document.querySelector(".product_date").style.borderColor = "#d3d3d3";
@@ -1048,6 +1432,50 @@ if (submitForm) {
   });
 }
 
+function statusFormat(cellStatus) {
+  const soldStr = "sold";
+  const listedStr = "listed";
+
+  //Adds icon to Status input
+  if (productStatus.value.toUpperCase() === soldStr.toUpperCase()) {
+    cellStatus.innerHTML = `
+      <div class="status_cell_txt">
+      <i class="fas fa-check-circle green" id="status_icon_sold"></i>
+      <span class="status_txt green">${productStatus.value}</span>
+      </div>`;
+  } else if (productStatus.value.toUpperCase() === listedStr.toUpperCase()) {
+    cellStatus.innerHTML = `
+      <div class="status_cell_txt">
+      <span class="material-icons-two-tone" id="status_icon_listed">inventory</span>
+      <span class="status_txt skyblue">${productStatus.value}</span>
+      </div>`;
+  } else if (productStatus.value != "") {
+    cellStatus.innerHTML = `
+      <div class="status_cell_txt">
+      <span class="material-icons-two-tone" id="status_icon_unlisted">inventory_2</span>
+      <span class="status_txt grey">${productStatus.value}</span>
+      </div>`;
+  } else {
+    cellStatus.innerHTML = "";
+  }
+}
+
+function roiColor() {
+  if (roi.innerHTML.replace(pattern, "") > "1") {
+    roi.classList.remove("neutral");
+    roi.classList.remove("lost");
+    roi.classList.add("profit");
+  } else if (roi.innerHTML.replace(pattern, "") < "0") {
+    roi.classList.remove("neutral");
+    roi.classList.remove("profit");
+    roi.classList.add("lost");
+  } else {
+    roi.classList.remove("profit");
+    roi.classList.remove("lost");
+    roi.classList.add("neutral");
+  }
+}
+
 function noData() {
   if (productCount.innerHTML >= 1) {
     document.querySelector(".empty_table").style.display = "none";
@@ -1056,10 +1484,10 @@ function noData() {
   }
 }
 
-function scrollPosition() {
-  if (productCount.innerHTML >= 1) {
-    document.querySelector(".table_scroll").style.paddingBottom = "0rem";
-  } else {
-    document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
-  }
-}
+// function scrollPosition() {
+//   if (productCount.innerHTML >= 1) {
+//     document.querySelector(".table_scroll").style.paddingBottom = "0rem";
+//   } else {
+//     document.querySelector(".table_scroll").style.paddingBottom = "29.5rem";
+//   }
+// }

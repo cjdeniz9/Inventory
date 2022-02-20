@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/8e777b5eeb.js"
@@ -31,13 +35,14 @@
         <nav>    
       </header>
     </div> -->
-    <div class="container inventory_left">
+  <div class="index_content_container">
+    <div class="inventory_left">
       <div class="user_nav">
         <div class="top_nav">
           <!-- <div class="circle_logo"> -->
           <div class="circle">
             <!-- <i class="fas fa-cubes logo_nav"></i> -->
-            <img src="/images/trackerLogo.png" width="22%" />
+            <img src="/images/trackerLogo.png" width="18%" />
           </div>
           <!-- </div> -->
           <!-- <a href="home.html">
@@ -45,57 +50,74 @@
           </a> -->
         </div>
         <div class="user_info">
-          <span class="welcome_user">Hello, Christian</span>
-          <span class="username_text"
-            >Username: <span class="user">@cjdeniz</span></span
-          >
+          <span class="welcome_user">Hello Christian</span>
+          <div class="username_container">
+            <span class="user">@cjdeniz</span>
+          </div>
         </div>
         <div class="nav_content">
-          <div class="nav_border"></div>
+          <!-- <div class="nav_border"></div> -->
           <span class="menu_text">Menu</span>
-          <div class="user_nav_a">
-            <a href="#" class="nav_link">
-              <div class="nav_icon_container">
-                <i class="fas fa-chart-pie"></i>
-              </div>
-              <span class="nav_link_label">Dashboard</span>
-            </a>
-          </div>
-          <div class="user_nav_a">
-            <a href="#" class="nav_link">
-              <div class="nav_icon_container">
-                <i class="fas fa-box selected"></i>
-              </div>
-              <span class="nav_link_label selected">Inventory</span>
-            </a>
-          </div>
-          <div class="user_nav_a">
-            <a href="#" class="nav_link">
-              <div class="nav_icon_container">
-                <i class="fas fa-sliders-h"></i>
-              </div>
-              <span class="nav_link_label">Setting</span>
-            </a>
-          </div>
-          <div class="nav_content_bottom">
+          <a href="#" class="remove_underline">
             <div class="user_nav_a">
-              <a href="home.html" class="nav_link">
-                <div class="nav_icon_container">
-                  <span class="material-icons-outlined" id="logout_icon">
-                    logout
+              <div class="nav_link">
+                <!-- <div class="nav_icon_container"> -->
+                  <!-- <i class="fas fa-chart-pie"></i> -->
+                  <span class="material-icons-two-tone nav_icon nav_icon_clr">
+                    space_dashboard
                   </span>
-                </div>
-                <span class="nav_link_label">Logout</span>
-              </a>
+                <!-- </div> -->
+                <span class="nav_link_label">Dashboard</span>
+              </div>
             </div>
+          </a>
+          <a href="#" class="remove_underline">
+            <div class="user_nav_a">
+              <div class="nav_link">
+                <!-- <div class="nav_icon_container"> -->
+                  <!-- <i class="fas fa-box selected"></i> -->
+                  <span class="material-icons-two-tone nav_icon icon_selected">
+                    queue
+                  </span>             
+                <!-- </div> -->
+                <span class="nav_link_label selected">Inventory</span>
+              </div>
+            </div>
+          </a>  
+          <a href="#" class="remove_underline">
+            <div class="user_nav_a">
+              <div class="nav_link">
+                <!-- <div class="nav_icon_container"> -->
+                  <!-- <i class="fas fa-sliders-h"></i> -->
+                  <span class="material-icons-two-tone nav_icon nav_icon_clr">
+                    manage_accounts
+                  </span>
+                <!-- </div> -->
+                <span class="nav_link_label">Setting</span>
+              </div>
+            </div>
+          </a>  
+          <div class="nav_content_bottom">
+            <a href="home.html" class="remove_underline">
+              <div class="user_nav_a">
+                <div class="nav_link">
+                  <!-- <div class="nav_icon_container"> -->
+                    <span class="material-icons-outlined nav_icon nav_icon_clr" id="logout_icon">
+                      logout
+                    </span>
+                  <!-- </div> -->
+                  <span class="nav_link_label">Logout</span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container inventory_right">
+    <div class="inventory_right">
       <div class="user_nav_mobile">
         <div class="logo">
-          <i class="fas fa-cubes logo_home"></i>
+          <img class="inventory_tracker_logo" src="/images/trackerLogo.png"/>
           <div class="nav_menu_mobile">
             <i class="fas fa-bars hamburger_menu"></i>
           </div>
@@ -104,36 +126,34 @@
           <div class="nav_content_mobile">
             <div class="user_nav_a_mobile">
               <a href="#" class="nav_link">
-                <div class="nav_icon_container">
-                  <i class="fas fa-chart-pie"></i>
-                </div>
+                <span class="material-icons-two-tone nav_icon nav_icon_clr">
+                  space_dashboard
+                </span>
                 <span class="nav_link_label">Dashboard</span>
               </a>
             </div>
             <div class="user_nav_a_mobile">
               <a href="#" class="nav_link">
-                <div class="nav_icon_container">
-                  <i class="fas fa-box"></i>
-                </div>
-                <span class="nav_link_label">Inventory</span>
+                <span class="material-icons-two-tone nav_icon icon_selected">
+                  queue
+                </span> 
+                <span class="nav_link_label selected">Inventory</span>
               </a>
             </div>
             <div class="user_nav_a_mobile">
               <a href="#" class="nav_link">
-                <div class="nav_icon_container">
-                  <i class="fas fa-sliders-h"></i>
-                </div>
+                <span class="material-icons-two-tone nav_icon nav_icon_clr">
+                  manage_accounts
+                </span>
                 <span class="nav_link_label">Setting</span>
               </a>
             </div>
             <div class="nav_content_bottom">
               <div class="user_nav_a_mobile">
                 <a href="home.html" class="nav_link">
-                  <div class="nav_icon_container">
-                    <span class="material-icons-outlined" id="logout_icon">
-                      logout
-                    </span>
-                  </div>
+                  <span class="material-icons-outlined nav_icon nav_icon_clr" id="logout_icon">
+                    logout
+                  </span>
                   <span class="nav_link_label logout_label">Sign Out</span>
                 </a>
               </div>
@@ -143,247 +163,412 @@
         <div class="user_menu_background"></div>
       </div>
       <div class="inventory_container">
-      <div class="heading_container">
-        <h1 class="inventory_heading">Inventory</h1>
-      </div>
-      <div class="mid_content left">
-        <div class="inventory_info_box">
-          <div class="stat_box count_box">
-            <div class="icon_background count">
-              <i class="fas fa-box-open"></i>
-            </div>
-            <div class="total_number"><h2 class="product_count">0</h2></div>
-            <div class="stat_box_label"><p>Product Count</p></div>
-          </div>
-          <div class="stat_box cost_box">
-            <div class="icon_background cost">
-              <i class="fas fa-tag"></i>
-            </div>
-            <div class="total_number"><h2 class="total_spendings">$0</h2></div>
-            <div class="stat_box_label"><p>Total Spendings</p></div>
-          </div>
-          <div class="stat_box profit_box">
-            <div class="icon_background return_on_investment">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div class="total_number"><h2 class="roi">$0</h2></div>
-            <!-- <div><h5 class="total_percent">0%</h5></div> -->
-            <div class="stat_box_label"><p>Return on Investment</p></div>
-          </div>
+        <div class="heading_container">
+          <span class="inventory_heading">Inventory</span>
         </div>
-      </div>
-      <div class="input_container">
-        <div class="search_bar">
-          <input
-            class="search_product"
-            type="text"
-            onkeyup="searchProduct()"
-            placeholder="Search..."
-          >
-          <span class="material-icons-outlined" id="search_icon"> search </span>
-        </input>
+        <div class="inventory_subheader_container">
+          <span class="inventory_subheading">Manage your inventory of shoes, clothes, and collectibles.</span>
         </div>
-        <!-- <div class="mid_content right"> -->
-        <!-- <div class="btn_container"> -->
-        <div class="buttons">
-          <button class="open_form">
-            <span class="add_symbol">+</span>
-          </button>
-          <button class="clear_table" type="submit">
-            <img
-              src="images/trash_icon.png"
-              class="trash_icon"
-              alt="Trash Icon"
-            />
-          </button>
-          <!-- </div> -->
-        </div>
-      </div>
-
-      <!-- </div> -->
-      <form>
-        <div class="form_popup_background">
-          <div class="form_popup">
-            <div class="inventory_form" name="Form">
-              <div class="form_header">
-                <span class="form_heading">Add New Item</span>
-                <span class="edit_heading">Edit Item</span>
+        <div class="mid_content">
+          <div class="inventory_info_box">
+            <div class="stat_box count_box">
+              <div class="icon_container">
+                <!-- <i class="fas fa-box-open"></i> -->
+                <span class="material-icons-two-tone stat_icon">
+                  shopping_cart
+                </span>
               </div>
-              <div class="inventory_form_row">
-                <div class="input_section name">
-                  <label for="name" class="label_name">
-                    <span class="content_name"
-                      >Name
-                      <span class="required_asterisk"> * </span>
-                      <span class="required_input r_name"> Required </span>
-                    </span>
-                  </label>
-                  <input
-                    class="product_name"
-                    name="name"
-                    type="text"
-                    autocomplete="off"
-                    required
-                  />
-                </div>
-                <div class="input_section brand">
-                  <label for="brand" class="label_name">
-                    <span class="content_name">Brand</span>
-                  </label>
-                  <input
-                    class="product_brand"
-                    name="brand"
-                    type="text"
-                    autocomplete="off"
-                  />
-                </div>
+              <div class="stat_box_label"><span>Product</span></div>
+              <div class="total_number"><span class="product_count">0</span></div>
+            </div>
+            <div class="stat_box cost_box">
+              <div class="icon_container">
+                <!-- <i class="fas fa-tag"></i> -->
+                <span class="material-icons-two-tone stat_icon">
+                  payments
+                </span>
               </div>
-              <div class="inventory_form_row">
-                <div class="input_section size">
-                  <label for="size" class="label_name">
-                    <span class="content_name">Size</span>
-                  </label>
-                  <input
-                    class="product_size"
-                    name="size"
-                    type="text"
-                    autocomplete="off"
-                  />
-                </div>
-                <div class="input_section style_id">
-                  <label for="styleId" class="label_name">
-                    <span class="content_name">Style ID</span>
-                  </label>
-                  <input
-                    class="product_style_id"
-                    name="styleId"
-                    type="text"
-                    autocomplete="off"
-                  />
-                </div>
-                <div class="input_section status">
-                  <label for="size" class="label_name">
-                    <span class="content_name">Status</span>
-                  </label>
-                  <input
-                    class="product_status"
-                    name="size"
-                    type="text"
-                    autocomplete="off"
-                  />
-                </div>
+              <div class="stat_box_label"><span>Revenue</span></div>
+              <div class="total_number"><span class="total_spendings">$0</span></div>
+            </div>
+            <div class="stat_box profit_box">
+              <div class="icon_container">
+                <!-- <i class="fas fa-chart-line"></i> -->
+                <span class="material-icons-two-tone stat_icon">
+                  area_chart
+                </span>
               </div>
-              <div class="inventory_form_row">
-                <div class="input_section purchased">
-                  <label for="purchaseDate" class="label_name">
-                    <span class="content_name">
-                      Purchase Date
-                      <span class="required_asterisk"> * </span>
-                      <span class="required_input r_date"> Required </span>
-                    </span>
-                  </label>
-                  <input
-                    class="product_date"
-                    id="purchaseDate"
-                    name="purchaseDate"
-                    type="date"
-                  />
-                </div>
-                <div class="input_section sold">
-                  <label for="soldDate" class="label_name">
-                    <span class="content_name">Sold Date</span>
-                  </label>
-                  <input
-                    class="product_date_sold"
-                    name="soldDate"
-                    type="date"
-                  />
-                </div>
-              </div>
-
-              <div class="inventory_form_row">
-                <div class="input_section price">
-                  <label for="price" class="label_name">
-                    <span class="content_name">
-                      Price
-                      <span class="required_asterisk"> * </span>
-                      <span class="required_input r_price"> Required </span>
-                    </span>
-                  </label>
-                  <input
-                    class="product_price"
-                    id="price_input"
-                    name="price"
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    autocomplete="off"
-                  />
-                  <span class="dollar_sign">$</span>
-                </div>
-                <div class="input_section return">
-                  <label for="roi" class="label_name">
-                    <span class="content_name">Profit</span>
-                  </label>
-                  <input
-                    class="product_roi"
-                    id="roi_input"
-                    name="roi"
-                    type="number"
-                    step="0.01"
-                    autocomplete="off"
-                  />
-                  <span class="dollar_sign">$</span>
-                </div>
-                <div class="input_section condition">
-                  <label for="condition" class="label_name">
-                    <span class="content_name">Condition</span>
-                  </label>
-                  <input
-                    class="product_condition"
-                    name="condition"
-                    type="text"
-                    autocomplete="off"
-                  />
-                </div>
-              </div>
-              <div class="edit_btns">
-                <button class="cancel_btn" type="button">Cancel</button>
-                <button class="edit_row" type="button">Edit</button>
-              </div>
-              <div class="form_buttons">
-                <button class="close_form" type="button">Close</button>
-                <button class="submit_form" type="button">Add</button>
-              </div>
+              <div class="stat_box_label"><span>Profit</span></div>
+              <div class="total_number"><span class="roi">$0</span></div>
+              <!-- <div><h5 class="total_percent">0%</h5></div> -->
             </div>
           </div>
         </div>
-      </form>
-
-      <div class="table_scroll">
-        <table class="table_inventory">
-          <thead>
-            <th class="product_name_th">Name</th>
-            <th class="product_brand_th">Brand</th>
-            <th class="product_size_th">Size</th>
-            <th class="product_style_id_th">Style ID</th>
-            <th class="product_status_th">Status</th>
-            <th class="date_purchased_th">Purchase Date</th>
-            <th class="date_sold_th">Sold Date</th>
-            <th class="product_price_th">Price</th>
-            <th class="product_roi_th">Profit</th>
-            <th class="product_condition_th">Condition</th>
-            <th class="actions_th"></th>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div class="empty_table">
-        <i class="far fa-chart-bar"></i><br />
-        <span class="no_data">No Data</span><br />
-        <span class="report_data">Add items to track inventory.</span>
-      </div>
+        <div class="input_container">
+          <div class="search_bar">
+            <input
+              class="search_product"
+              type="text"
+              onkeyup="searchProduct()"
+              placeholder="Search"
+            >
+            </input>
+          </div>
+          <div class="drop_down_list">
+            <select class="status_filter" id="status_filter">
+              <option class="ddl_opt" value="all">Status: All</option>
+              <option class="ddl_opt" value="sold">Sold</option>
+              <option class="ddl_opt" value="listed">Listed</option>
+              <option class="ddl_opt" value="unlisted">Unlisted</option>
+            </select>
+          </div>
+          <div class="buttons">
+            <button class="open_form">
+              <span class="add_symbol">+</span>
+            </button>
+            <button class="clear_table" type="submit">
+              <img
+                src="images/trash_icon.png"
+                class="trash_icon"
+                alt="Trash Icon"
+              />
+            </button>
+          </div>
+        </div>
+        <form>
+          <div class="form_popup_background">
+            <div class="form_popup">
+              <div class="inventory_form" name="Form">
+                <div class="form_header">
+                  <span class="form_heading">Create new item</span>
+                  <span class="edit_heading">Edit Item</span>
+                </div>
+                <div class="inventory_form_row">
+                  <div class="input_section name">
+                    <label for="name" class="label_name">
+                      <span class="content_name"
+                        >Name
+                        <span class="required_asterisk"> * </span>
+                        <span class="required_input r_name"> Required </span>
+                      </span>
+                    </label>
+                    <input
+                      class="product_name input_style"
+                      name="name"
+                      type="text"
+                      autocomplete="off"
+                      required
+                    />
+                  </div>
+                  <div class="input_section style_id">
+                    <label for="styleId" class="label_name">
+                      <span class="content_name">Style ID</span>
+                    </label>
+                    <input
+                      class="product_style_id input_style"
+                      name="styleId"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="inventory_form_row">
+                  <div class="input_section brand">
+                    <label for="brand" class="label_name">
+                      <span class="content_name">Brand</span>
+                    </label>
+                    <input
+                      class="product_brand input_style"
+                      name="brand"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input_section color">
+                    <label for="color" class="label_name">
+                      <span class="content_name">Color</span>
+                    </label>
+                    <input
+                      class="product_colorway input_style"
+                      name="color"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input_section status">
+                    <label for="status" class="label_name">
+                      <span class="content_name">Status</span>
+                    </label>
+                    <input
+                      class="product_status input_style"
+                      name="status"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="inventory_form_row">
+                  <div class="input_section place_of_purchase">
+                    <label for="placeof" class="label_name">
+                      <span class="content_name">Place of Purchase</span>
+                    </label>
+                    <input
+                      class="product_place_of_purchase input_style"
+                      name="placeof"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input_section platform">
+                    <label for="platform" class="label_name">
+                      <span class="content_name">Platform</span>
+                    </label>
+                    <input
+                      class="product_platform input_style"
+                      name="platform"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="input_section size">
+                    <label for="size" class="label_name">
+                      <span class="content_name">Size</span>
+                    </label>
+                    <input
+                      class="product_size input_style"
+                      name="size"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="inventory_form_row">
+                  <div class="input_section price">
+                    <label for="price" class="label_name">
+                      <span class="content_name">
+                        Price
+                        <span class="required_asterisk"> * </span>
+                        <span class="required_input r_price"> Required </span>
+                      </span>
+                    </label>
+                    <input
+                      class="product_price input_style"
+                      id="price_input"
+                      name="price"
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      autocomplete="off"
+                    />
+                    <span class="dollar_sign">$</span>
+                  </div>
+                  <div class="input_section return">
+                    <label for="roi" class="label_name">
+                      <span class="content_name">Profit</span>
+                    </label>
+                    <input
+                      class="product_roi input_style"
+                      id="roi_input"
+                      name="roi"
+                      type="number"
+                      step="0.01"
+                      autocomplete="off"
+                    />
+                    <span class="dollar_sign">$</span>
+                  </div>
+                  <div class="input_section condition">
+                    <label for="condition" class="label_name">
+                      <span class="content_name">Condition</span>
+                    </label>
+                    <input
+                      class="product_condition input_style"
+                      name="condition"
+                      type="text"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="inventory_form_row">
+                  <div class="input_section purchased">
+                    <label for="purchaseDate" class="label_name">
+                      <span class="content_name">
+                        Purchase Date
+                        <span class="required_asterisk"> * </span>
+                        <span class="required_input r_date"> Required </span>
+                      </span>
+                    </label>
+                    <input
+                      class="product_date input_date_style"
+                      id="purchaseDate"
+                      name="purchaseDate"
+                      type="date"
+                    />
+                  </div>
+                  <div class="input_section sold">
+                    <label for="soldDate" class="label_name">
+                      <span class="content_name">Sold Date</span>
+                    </label>
+                    <input
+                      class="product_date_sold input_date_style"
+                      name="soldDate"
+                      type="date"
+                    />
+                  </div>
+                </div>
+                <div class="size_content">
+                  <div class="size_header">
+                    <div class="size_heading sizeShoes">Shoes</div>
+                    <div class="size_heading sizeClothes">Clothes</div>
+                    <div class="size_heading sizeOther">Other</div>
+                  </div>
+                  <div class="size_container shoe_sizes_first">
+                    <div class="size_box size3">
+                      <small>3</small>
+                    </div>
+                    <div class="size_box size35">
+                      <small>3.5</small>
+                    </div>
+                    <div class="size_box size4">
+                      <small>4</small>
+                    </div>
+                    <div class="size_box size45">
+                      <small>4.5</small>
+                    </div>
+                    <div class="size_box size5">
+                      <small>5</small>
+                    </div>
+                    <div class="size_box size55">
+                      <small>5.5</small>
+                    </div>
+                    <div class="size_box size6">
+                      <small>6</small>
+                    </div>
+                    <div class="size_box size65">
+                      <small>6.5</small>
+                    </div>
+                    <div class="size_box size7">
+                      <small>7</small>
+                    </div>
+                    <div class="size_box size75">
+                      <small>7.5</small>
+                    </div>
+                    <div class="size_box size8">
+                      <small>8</small>
+                    </div>
+                  </div>
+                  <div class="size_container shoe_sizes_second">
+                    <div class="size_box size85">
+                      <small>8.5</small>
+                    </div>
+                    <div class="size_box size9">
+                      <small>9</small>
+                    </div>
+                    <div class="size_box size95">
+                      <small>9.5</small>
+                    </div>
+                    <div class="size_box size10">
+                      <small>10</small>
+                    </div>
+                    <div class="size_box size105">
+                      <small>10.5</small>
+                    </div>
+                    <div class="size_box size11">
+                      <small>11</small>
+                    </div>
+                    <div class="size_box size115">
+                      <small>11.5</small>
+                    </div>
+                    <div class="size_box size12">
+                      <small>12</small>
+                    </div>
+                    <div class="size_box size125">
+                      <small>12.5</small>
+                    </div>
+                    <div class="size_box size13">
+                      <small>13</small>
+                    </div>
+                    <div class="size_box size135">
+                      <small>13.5</small>
+                    </div>
+                  </div>
+                  <div class="size_container clothes_sizes">
+                    <div class="size_box sizeXXS" id="clothes_size_box first_size_box">
+                      <small>XXS</small>
+                    </div>
+                    <div class="size_box sizeXS" id="clothes_size_box">
+                      <small>XS</small>
+                    </div>
+                    <div class="size_box sizeS" id="clothes_size_box">
+                      <small>S</small>
+                    </div>
+                    <div class="size_box sizeM" id="clothes_size_box">
+                      <small>M</small>
+                    </div>
+                    <div class="size_box sizeL" id="clothes_size_box">
+                      <small>L</small>
+                    </div>
+                    <div class="size_box sizeXL" id="clothes_size_box">
+                      <small>XL</small>
+                    </div>
+                    <div class="size_box sizeXXL" id="clothes_size_box">
+                      <small>XXL</small>
+                    </div>
+                    <div class="size_box sizeXXXL" id="clothes_size_box">
+                      <small>XXXL</small>
+                    </div>
+                  </div>
+                  <div class="size_container other_sizes">
+                    <div class="size_box sizeOS" id="other_size_box first_size_box">
+                      <small>OS</small>
+                    </div>
+                    <div class="size_box sizeNA" id="other_size_box">
+                      <small>N/A</small>
+                    </div>
+                  </div>
+                </div>  
+                <div class="edit_btns">
+                  <button class="cancel_btn" type="button">Cancel</button>
+                  <button class="edit_row" type="button">Edit</button>
+                </div>
+                <div class="form_buttons">
+                  <button class="close_form" type="button">Close</button>
+                  <button class="submit_form" type="button">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="inventory_table">
+          <div class="table_scroll">
+            <table class="table_inventory">
+              <thead>
+                <th class="product_name_th">Name</th>
+                <th class="product_size_th">Size</th>
+                <th class="product_style_id_th">Style ID</th>
+                <th class="product_status_th">Status</th>
+                <th class="product_roi_th">Profit</th>
+                <th class="product_price_th">Price</th>
+                <th class="date_purchased_th">Purchase Date</th>
+                <th class="product_place_of_purchase_th">Place of Purchase</th>
+                <th class="date_sold_th">Sold Date</th>
+                <th class="product_platform_th">Platform</th>
+                <th class="product_brand_th">Brand</th>
+                <th class="product_colorway_th">Colorway</th>
+                <th class="product_condition_th">Condition</th>
+                <th class="actions_th"></th>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="empty_table">
+            <img  class="empty_img" src="https://d38bz8f2d2uvh5.cloudfront.net/t4nR58k.png">
+            <div class="empty_txt">
+              <span class="report_data">Add items to track inventory.</span>
+            </div>
+          </div>
+        </div>  
       </div>
     </div>
+  </div>  
   </body>
 </html>
